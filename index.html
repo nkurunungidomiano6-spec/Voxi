@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta property="og:title" content="Voxi — Grow Your Wealth">
+<meta property="og:description" content="Join Voxi and earn 10% daily profit on your investments. Start with UGX 4,000 bonus!">
+<meta property="og:image" content="https://tuvko.github.io/PlatinumPeakHub/logo.png">
+<meta property="og:url" content="https://profit-pulse.site">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tuvko.github.io/PlatinumPeakHub/logo.png">
+<title>Voxi — Grow Your Wealth</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --surface2:#f5f6f8;
+  --surface3:#eef0f3;
+  --border:#e2e4e8;
+  --accent:#2196f3;
+  --accent2:#1976d2;
+  --accent3:#2196f3;
+  --warn:#ff6b6b;
+  --gold:#2196f3;
+  --text:#111111;
+  --muted:#6b7280;
+  --success:#22c55e;
+  --danger:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;max-width:500px;margin:0 auto;position:relative;overflow-x:hidden;}
+
+/* Animated Background */
+
+/* Avatar Styles */
+.avatar{
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#fff;
+  text-transform:uppercase;
+  flex-shrink:0;
+  border:2px solid var(--accent);
+}
+.avatar-sm{width:38px;height:38px;font-size:14px;}
+.avatar-lg{width:72px;height:72px;font-size:28px;margin:0 auto 14px;}
+.avatar-md{width:40px;height:40px;font-size:16px;}
+
+/* Auth Pages */
+.auth-page{display:none;flex-direction:column;min-height:100vh;padding:40px 24px;}
+.auth-page.active{display:flex;}
+.auth-hero{text-align:center;margin-bottom:28px;}
+.auth-logo{width:120px;height:120px;margin:0 auto 14px;}
+.auth-brand{font-family:'DM Sans',sans-serif;font-size:30px;font-weight:400;color:var(--accent);margin-bottom:4px;}
+.auth-tagline{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:28px 22px;}
+.auth-title{font-family:'DM Sans',sans-serif;font-size:21px;font-weight:400;margin-bottom:4px;color:var(--accent);}
+.auth-subtitle{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.field-group{margin-bottom:14px;}
+.field-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block;}
+.field-wrap{position:relative;display:flex;align-items:center;}
+.field-icon{position:absolute;left:14px;font-size:16px;pointer-events:none;z-index:2;}
+input,select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 42px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;}
+input:focus,select:focus{border-color:var(--accent);}
+select{cursor:pointer;}select option{background:var(--surface2);}
+.eye-btn{position:absolute;right:14px;background:none;border:none;font-size:18px;cursor:pointer;padding:4px;color:var(--muted);}
+.eye-btn:hover{color:var(--accent);}
+input[type="password"]{padding-right:46px;}
+.field-hint{font-size:10px;color:var(--muted);margin-top:5px;padding-left:4px;}
+.field-error{font-size:10px;color:var(--warn);margin-top:5px;padding-left:4px;display:none;}
+.fin-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 16px;}
+.fin-card-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.fin-req-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+.fin-req-row:last-of-type{border-bottom:none;}
+.fin-req-label{font-size:12px;color:var(--muted);font-weight:600;}
+.fin-req-value{font-size:13px;font-weight:800;color:var(--text);}
+.fin-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:8px;}
+.field-error.show{display:block;}
+
+.submit-btn{width:100%;background:var(--accent);border:none;border-radius:14px;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;margin-top:6px;}
+.submit-btn:active{transform:scale(.98);}
+.auth-switch{text-align:center;margin-top:18px;font-size:13px;color:var(--muted);}
+.auth-switch a{color:var(--accent);font-weight:700;cursor:pointer;text-decoration:none;}
+
+/* Phone Prefix */
+.phone-prefix-wrap{display:flex;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.phone-prefix-wrap:focus-within{border-color:var(--accent);}
+.phone-prefix-badge{background:var(--surface3);border-right:1px solid var(--border);padding:13px 12px;font-family:'Courier New',monospace;font-size:13px;color:var(--accent);font-weight:700;white-space:nowrap;flex-shrink:0;}
+.phone-prefix-wrap input{background:transparent;border:none;border-radius:0;padding:13px 14px;flex:1;}
+.phone-prefix-wrap input:focus{border:none;}
+
+/* Dashboard */
+.dashboard-page{display:none;min-height:100vh;padding-bottom:90px;position:relative;z-index:1;}
+.dashboard-page.active{display:block;}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 12px;background:var(--bg);position:sticky;top:0;z-index:100;}
+.topbar-left{display:flex;align-items:center;gap:12px;}
+.menu-btn{width:38px;height:38px;border-radius:11px;background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--accent);border-radius:2px;}
+.menu-btn span:nth-child(2){width:12px;}
+.brand{display:flex;align-items:center;gap:8px;}
+.brand-icon{width:34px;height:34px;background:var(--accent);border-radius:10px;display:grid;place-items:center;font-size:16px;color:#fff;}
+.brand-name{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;color:var(--accent);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.theme-toggle{background:none;border:none;font-size:18px;cursor:pointer;padding:6px;color:var(--accent);transition:.3s;}
+.theme-toggle:active{transform:scale(.95);}
+.username-top{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--accent3);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s;}
+.menu-overlay.open{opacity:1;pointer-events:all;}
+.side-menu{position:fixed;top:0;left:-280px;width:270px;height:100vh;background:var(--surface);border-right:1px solid var(--border);z-index:600;transition:left .35s;display:flex;flex-direction:column;overflow-y:auto;}
+.side-menu.open{left:0;}
+.side-menu-header{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--border);}
+.side-menu-brand{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;color:var(--accent);}
+.close-menu{width:32px;height:32px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-size:18px;cursor:pointer;display:grid;place-items:center;}
+.side-menu-items{flex:1;padding:16px;}
+.menu-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;cursor:pointer;margin-bottom:4px;font-size:14px;font-weight:600;color:var(--text);}
+.menu-item:hover{background:var(--surface2);}
+.menu-item.active-menu{background:var(--surface3);color:var(--accent);}
+.menu-divider{height:1px;background:var(--border);margin:10px 0;}
+.menu-logout{margin:12px;display:flex;align-items:center;justify-content:center;gap:12px;padding:14px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;background:var(--warn);color:#fff;border:none;width:calc(100% - 24px);font-family:'DM Sans',sans-serif;}
+.menu-logout:active{transform:scale(.98);}
+
+/* Sections */
+.section{padding:0 16px;margin-bottom:14px;}
+.dash-section{display:none;}
+.dash-section.active{display:block;}
+.stats-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px 20px;}
+.balance-big{text-align:center;padding:8px 0 16px;}
+.balance-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+.balance-amount{font-family:'Courier New',monospace;font-size:32px;font-weight:700;color:var(--accent);}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;}
+.stat-box{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 6px;text-align:center;}
+.stat-label{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px;}
+.stat-value{font-size:10px;font-weight:700;font-family:'Courier New',monospace;}
+.stat-value.dep{color:var(--muted)}.stat-value.earn{color:var(--success)}.stat-value.with{color:var(--warn)}.stat-value.total{color:var(--accent)}
+.ref-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px;}
+.ref-url{flex:1;font-size:11px;color:var(--muted);font-family:'Courier New',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.copy-btn{background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;padding:7px 14px;cursor:pointer;}
+.copy-btn:active{transform:scale(.95);}
+.action-grid{display:flex;flex-direction:column;gap:12px;padding-left:16px;}
+.action-btn{border:none;border-radius:14px;padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:10px;width:fit-content;}
+.action-btn:active{transform:scale(.96);}
+.btn-icon{font-size:20px;}
+.btn-deposit{background:var(--accent3);color:#fff;}
+.btn-withdraw{background:var(--gold);color:#fff;}
+.btn-reinvest{background:var(--accent);color:#fff;}
+.btn-transactions{background:var(--accent2);color:#fff;}
+
+/* Floating WhatsApp Icon */
+
+/* Investment Active Card */
+
+/* Table (Scrollable) */
+.plan-wrap{background:#fff;border:2px solid #000;border-radius:0;overflow:hidden;}
+.plan-header{background:#fff;padding:8px 10px;text-align:center;border-bottom:2px solid #000;}
+.plan-header-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:400;color:#000;}
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0;}
+.plan-table{width:100%;border-collapse:collapse;min-width:280px;}
+.plan-table thead tr{background:#1a1a1a;}
+.plan-table thead th{padding:6px 4px;font-size:8px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#ffffff;text-align:center;border-bottom:2px solid #333333;border-right:2px solid #333333;}
+.plan-table thead th:last-child{border-right:none;}
+.plan-table tbody tr{border-bottom:1px solid #333333;}
+.plan-table tbody tr:nth-child(odd){background:#111111;}
+.plan-table tbody tr:nth-child(even){background:#1a1a1a;}
+.plan-table tbody td{padding:4px 3px;font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;text-align:center;border-right:1px solid #333333;color:#ffffff;}
+.plan-table tbody td:last-child{border-right:none;}
+.plan-table tbody td:first-child{color:#ffffff;font-weight:700;font-size:9px;}
+.plan-table tbody td:nth-child(2){color:#4ade80;font-weight:600;font-size:9px;}
+.plan-table tbody td:nth-child(3){color:#ffffff;font-weight:700;font-size:9px;}
+.scroll-hint{text-align:center;padding:8px;font-size:9px;color:var(--muted);background:var(--surface);border-top:1px solid var(--border);}
+.plan-footer{padding:12px;background:var(--surface2);}
+.start-invest-btn{width:100%;background:var(--accent);border:none;border-radius:12px;padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#fff;cursor:pointer;}
+.start-invest-btn:active{transform:scale(.98);}
+
+/* Inner Pages */
+.inner-header{display:flex;align-items:center;gap:12px;padding:16px 16px 8px;}
+.inner-title{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;color:var(--accent);}
+.inner-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.empty-state{text-align:center;padding:50px 20px;color:var(--muted);}
+.empty-icon{font-size:48px;margin-bottom:14px;}
+.empty-title{font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text);}
+.empty-text{font-size:13px;}
+.profile-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px 20px;text-align:center;}
+.profile-name{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:400;margin-bottom:4px;}
+.profile-country{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.profile-detail{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border-radius:12px;padding:12px 16px;margin-bottom:10px;font-size:13px;}
+.profile-detail-label{color:var(--muted);}
+.profile-detail-val{font-weight:700;font-family:'Courier New',monospace;font-size:12px;}
+.profile-avatar-container{display:flex;justify-content:center;margin-bottom:14px;}
+
+/* Profile Styles */
+.profile-header-section{background:linear-gradient(135deg, var(--accent2) 0%, var(--accent) 100%);border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:16px;color:#fff;}
+.profile-avatar-lg{width:90px;height:90px;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 16px;font-weight:700;}
+.profile-name-header{font-family:'DM Sans',sans-serif;font-size:26px;font-weight:400;margin-bottom:4px;}
+.profile-country-header{font-size:12px;opacity:.9;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;}
+.profile-status-badge{display:inline-block;background:rgba(74,222,128,.3);border:1px solid rgba(74,222,128,.6);color:#fff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.profile-info-section{background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;}
+.profile-section-title{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;padding:14px 16px;background:var(--surface2);border-bottom:1px solid var(--border);margin:0;}
+.profile-info-item{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);}
+.profile-info-item:last-child{border-bottom:none;}
+.profile-info-label{font-size:12px;color:var(--muted);font-weight:600;}
+.profile-info-value{font-size:13px;font-weight:700;font-family:'Courier New',monospace;}
+.profile-stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px;}
+.profile-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;}
+.profile-stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;font-weight:700;}
+.profile-stat-value{font-size:18px;font-weight:800;font-family:'Courier New',monospace;color:var(--accent);}
+.logout-dash-new{width:100%;background:var(--warn);border:none;border-radius:14px;color:#fff;padding:15px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;}
+.logout-dash-new:active{transform:scale(.98);}
+.acc-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.acc-item{border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.acc-header{padding:14px 16px;font-size:14px;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:var(--surface);}
+.acc-arrow{transition:transform .25s;color:var(--muted);font-size:12px;}
+.acc-item.open .acc-arrow{transform:rotate(180deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;background:var(--surface);}
+.acc-item.open .acc-body{max-height:500px;}
+.acc-text{font-size:12px;line-height:1.6;color:var(--muted);padding:0 16px 16px;}
+
+.profile-simple-item{background:transparent;border:none;border-bottom:1px solid var(--border);border-radius:0;padding:16px 0;display:flex;align-items:center;justify-content:space-between;}
+.profile-simple-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;}
+.profile-simple-value{font-size:14px;font-weight:700;font-family:'Courier New',monospace;color:var(--muted);}
+.logout-btn-new{width:100%;background:#ef4444;border:none;border-radius:14px;color:#fff;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;}
+.logout-btn-new:active{transform:scale(.98);}
+
+/* Bottom Nav */
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:500px;background:var(--surface);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 2px calc(8px + env(safe-area-inset-bottom));z-index:200;}
+.nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;padding:4px 2px;min-width:0;}
+.nav-icon{font-size:17px;line-height:1;}
+.nav-label{font-size:8px;font-weight:700;letter-spacing:0.2px;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.nav-item.active .nav-label{color:var(--accent);}
+
+/* Footer */
+.app-footer{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);width:100%;max-width:500px;background:var(--surface2);border-top:1px solid var(--border);padding:12px 16px;z-index:199;}
+.footer-content{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.footer-copyright{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.5px;}
+.footer-links{display:flex;align-items:center;gap:8px;justify-content:center;}
+.footer-link{background:none;border:none;color:var(--accent);font-size:10px;font-weight:700;cursor:pointer;padding:0;text-decoration:none;}
+.footer-link:active{transform:scale(.95);}
+.footer-divider{color:var(--border);font-size:8px;}
+
+/* Toast - kept but never shown to users */
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-20px);background:var(--accent3);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:100px;opacity:0;transition:.3s;z-index:9999;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* Forms */
+.action-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px 18px;}
+.green-btn{width:100%;background:#2d5016;border:none;border-radius:14px;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;margin-top:8px;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.5);}
+.green-btn:active{transform:scale(.98);}
+.green-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.red-btn{width:100%;background:#b85c20;border:none;border-radius:14px;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;margin-top:8px;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.5);}
+.red-btn:active{transform:scale(.98);}
+.red-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.amber-btn{width:100%;background:#06b6d4;border:none;border-radius:14px;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;margin-top:8px;}
+.amber-btn:active{transform:scale(.98);}
+.amber-btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+/* Section-specific backgrounds */
+#sec-deposit .action-card{background:linear-gradient(135deg, rgba(16,185,129,.1) 0%, rgba(16,185,129,.05) 100%);border:1px solid rgba(16,185,129,.3);}
+#sec-withdraw .action-card{background:linear-gradient(135deg, rgba(255,107,91,.1) 0%, rgba(255,107,91,.05) 100%);border:1px solid rgba(255,107,91,.3);}
+#sec-reinvest .action-card{background:linear-gradient(135deg, rgba(6,182,212,.1) 0%, rgba(6,182,212,.05) 100%);border:1px solid rgba(6,182,212,.3);}
+
+.popup-banner{position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-10px);background:#22c55e;color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:12px;opacity:0;transition:.35s;z-index:9998;pointer-events:none;text-align:center;max-width:300px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.25);line-height:1.4;}
+.popup-banner.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.readonly-field{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 42px;font-family:'Courier New',monospace;font-size:13px;color:var(--muted);}
+.charge-note{background:var(--surface2);border:1px solid var(--warn);border-radius:10px;padding:10px 14px;font-size:11px;color:var(--warn);margin-bottom:12px;line-height:1.6;}
+.deposit-note{background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:11px;color:var(--accent);margin-bottom:12px;line-height:1.6;}
+.locked-banner{background:var(--surface2);border:1px solid var(--warn);border-radius:12px;padding:12px 16px;font-size:12px;color:var(--warn);text-align:center;margin-bottom:12px;font-weight:700;}
+
+/* Modal - kept but never shown to users */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:800;display:none;align-items:center;justify-content:center;padding:24px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:30px 24px;text-align:center;max-width:340px;width:100%;max-height:80vh;display:flex;flex-direction:column;}
+.modal-icon{font-size:48px;margin-bottom:14px;flex-shrink:0;}
+.modal-title{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:400;margin-bottom:10px;color:var(--accent);flex-shrink:0;}
+.modal-msg{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px;overflow-y:auto;max-height:50vh;text-align:left;flex:1;}
+.modal-close{background:var(--accent);border:none;border-radius:12px;padding:13px 32px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;}
+.modal-close:active{transform:scale(.97);}
+
+/* Transaction List */
+.tx-table-wrapper{width:100%;overflow-x:auto;border-radius:14px;border:1px solid var(--border);background:var(--surface);}
+.tx-table{width:100%;border-collapse:collapse;font-size:12px;}
+.tx-table thead{background:var(--surface3);border-bottom:1px solid var(--border);}
+.tx-table th{padding:12px 10px;text-align:left;font-weight:700;font-size:11px;letter-spacing:0.5px;color:var(--accent);text-transform:uppercase;}
+.tx-table tbody tr{border-bottom:1px solid var(--border);}
+.tx-table tbody tr:last-child{border-bottom:none;}
+.tx-table tbody tr:hover{background:var(--surface2);}
+.tx-table td{padding:11px 10px;vertical-align:middle;}
+.tx-table .mono{font-family:'Courier New',monospace;font-size:11px;color:var(--muted);}
+.tx-table .amount.positive{color:var(--accent3);font-weight:700;}
+.tx-table .amount.negative{color:var(--warn);font-weight:700;}
+.tx-table .amount.gold{color:var(--muted);font-weight:700;}
+.tx-table .status{font-size:11px;font-weight:600;white-space:nowrap;}
+/* One-line Transaction Records */
+.tx-line-list{display:flex;flex-direction:column;}
+.tx-line-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 4px;border-bottom:1px solid var(--border);}
+.tx-line-row:last-child{border-bottom:none;}
+.tx-line-date{font-size:12px;color:var(--muted);font-family:'Courier New',monospace;flex:1;}
+.tx-line-amount{font-size:13px;font-weight:800;font-family:'Courier New',monospace;text-align:right;}
+.tx-line-amount.positive{color:#10b981;}
+.tx-line-amount.negative{color:#ef4444;}
+.tx-line-status{font-size:10px;font-weight:800;padding:4px 10px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;}
+.tx-status-completed{background:rgba(16, 185, 129, 0.2);color:#10b981;border:1px solid #10b981;}
+.tx-status-pending{background:rgba(77, 217, 232, 0.2);color:#4dd9e8;border:1px solid #4dd9e8;}
+.tx-status-failed{background:rgba(239, 68, 68, 0.2);color:#ef4444;border:1px solid #ef4444;}
+
+.tx-empty-state{text-align:center;padding:60px 20px;}
+.tx-empty-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.tx-empty-text{font-size:12px;color:var(--muted);}
+
+.tx-filter-tabs{display:none;}
+.tx-tab{display:none;}
+
+/* Referral Page */
+.ref-new-container{display:flex;flex-direction:column;gap:16px;}
+.ref-stat-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;gap:8px;}
+.ref-bonus-box{border-left:4px solid var(--accent);}
+.ref-team-box{border-left:4px solid var(--gold);}
+.ref-stat-top{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.ref-stat-amount{font-size:22px;font-weight:800;font-family:'Courier New',monospace;color:var(--accent);}
+.ref-link-section{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;}
+.ref-link-label{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.ref-link-box{display:flex;gap:8px;align-items:center;}
+.ref-link-input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:'Courier New',monospace;font-size:12px;color:var(--accent);outline:none;}
+.ref-copy-btn{background:var(--accent);border:none;border-radius:10px;padding:12px 16px;font-weight:700;color:#fff;cursor:pointer;font-size:12px;white-space:nowrap;}
+.ref-copy-btn:active{transform:scale(.95);}
+.ref-link-hint{font-size:10px;color:var(--muted);margin-top:8px;}
+.ref-commission-info{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;}
+.ref-commission-title{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;display:block;}
+.ref-commission-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface2);border-radius:10px;margin-bottom:8px;}
+.ref-commission-item:last-child{margin-bottom:0;}
+.ref-level{background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;}
+.ref-pct{font-weight:800;font-family:'Courier New',monospace;font-size:14px;color:var(--muted);min-width:35px;}
+.ref-desc{font-size:12px;color:var(--muted);flex:1;}
+.ref-empty-state{text-align:center;padding:40px 20px;}
+.ref-empty-emoji{font-size:48px;margin-bottom:12px;}
+.ref-empty-msg{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.ref-empty-hint{font-size:12px;color:var(--muted);}
+.ref-members-list{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:16px;}
+.ref-member-item{display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--surface2);border-radius:10px;}
+.ref-member-name{font-weight:700;color:var(--text);font-size:13px;}
+.ref-member-info{display:flex;gap:12px;align-items:center;font-size:11px;}
+.ref-member-level{background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;}
+.ref-member-status{color:var(--muted);}
+
+/* WA Button */
+.zx-support-wrap{position:fixed;bottom:80px;right:20px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.zx-support-btn{background:#22c55e;border:none;border-radius:20px;padding:12px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;cursor:pointer;box-shadow:0 4px 20px rgba(34,197,94,.4);transition:transform .2s;}
+.zx-support-btn:active{transform:scale(.96);}
+.zx-support-dropdown{display:none;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.2);min-width:190px;}
+.zx-support-dropdown.open{display:flex;}
+.zx-support-item{padding:12px 16px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);}
+.zx-support-item:last-child{border-bottom:none;}
+.zx-support-item:active{background:var(--surface2);}
+
+.loading-screen{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px;}
+.loading-spinner{width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;color:var(--muted);}
+.loading-dots span{opacity:0;animation:dotFade 1.4s infinite;}
+.loading-dots span:nth-child(1){animation-delay:0s;}
+.loading-dots span:nth-child(2){animation-delay:.2s;}
+.loading-dots span:nth-child(3){animation-delay:.4s;}
+@keyframes dotFade{0%{opacity:0;}20%{opacity:1;}50%{opacity:1;}80%{opacity:0;}100%{opacity:0;}}
+/* ===== Voxi Home Redesign ===== */
+.ph-balance-card{background:#1a2332;border-radius:16px;padding:14px 12px;}
+.ph-balance-row{display:flex;align-items:center;justify-content:space-between;}
+.ph-balance-col{flex:1;}
+.ph-balance-label{font-size:9px;color:#8a94a6;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;margin-bottom:4px;}
+.ph-balance-value{font-size:18px;font-weight:800;color:#ffffff;}
+.ph-balance-value.ph-green{color:#22c55e;}
+.ph-balance-divider{width:1px;align-self:stretch;background:#2e3a4f;margin:0 12px;}
+.ph-hr{height:1px;background:#2e3a4f;margin:10px 0;}
+.ph-stats-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.ph-stat-col{text-align:left;}
+.ph-stat-label{font-size:8px;color:#8a94a6;text-transform:uppercase;letter-spacing:0.4px;font-weight:600;margin-bottom:4px;}
+.ph-stat-value{font-size:12px;font-weight:800;color:#ffffff;}
+.ph-ref-row{display:flex;align-items:center;justify-content:space-between;}
+.ph-ref-label{font-size:11px;color:#8a94a6;font-weight:500;}
+.ph-ref-value{font-size:13px;font-weight:800;color:#ffffff;}
+
+.ph-invite-card{background:#ffffff;border-radius:16px;padding:12px 12px;}
+.ph-invite-title{font-size:13px;font-weight:800;color:#111111;margin-bottom:3px;}
+.ph-invite-sub{font-size:10px;color:#777777;margin-bottom:10px;}
+.ph-invite-box{display:flex;align-items:center;gap:8px;background:#f3f4f6;border-radius:10px;padding:8px 8px 8px 12px;}
+.ph-invite-url{flex:1;font-size:11px;color:#555555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ph-invite-copy{background:#22c55e;border:none;color:#ffffff;padding:8px 14px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;white-space:nowrap;}
+
+.ph-actions-title{font-size:14px;font-weight:800;color:var(--text);margin:4px 2px 8px;}
+.ph-actions-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.ph-action-tile{background:#ffffff;border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;}
+.ph-action-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.ph-action-label{font-size:10px;font-weight:700;color:#111111;text-align:center;}
+
+/* ===== Voxi green home dashboard ===== */
+:root{--bg:#f3f4f7;--vx-g1:#15803d;--vx-g2:#22c55e;--vx-g3:#16a34a;--vx-dark:#0f1a14;}
+[data-theme="dark"]{--bg:#0b1210;--surface:#141d19;--surface2:#1b2621;--surface3:#22302a;--border:#2a3a33;--text:#e8f1ec;--muted:#8fa399;}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.topbar{background:var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.12);padding:14px 16px;}
+.menu-btn{background:none;border:none;width:34px;}
+.menu-btn span{background:var(--text);}
+.vx-brand{font-size:20px;font-weight:800;color:var(--vx-g3);letter-spacing:.5px;}
+.topbar-right{gap:10px;}
+.vx-icon-btn{width:34px;height:34px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;}
+.vx-icon-btn .ic{width:17px;height:17px;}
+.vx-avatar{width:68px;height:68px;border-radius:50%;background:#fff;color:var(--vx-g1);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex-shrink:0;}
+.vx-avatar-sm{width:32px;height:32px;font-size:14px;background:var(--vx-g3);color:#fff;cursor:pointer;}
+.vx-first{padding-top:20px;}
+.vx-welcome{background:var(--vx-g3);border-radius:20px;padding:20px;display:flex;align-items:center;gap:14px;}
+.vx-welcome-body{min-width:0;}
+.vx-welcome-text{font-size:13px;color:#fff;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.vx-copy-btn{background:var(--vx-dark);color:#fff;border:none;border-radius:6px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;cursor:pointer;}
+.vx-copy-btn .ic{width:15px;height:15px;}
+.vx-stats{background:linear-gradient(135deg,var(--vx-g1),var(--vx-g2));border-radius:10px;padding:18px 8px;display:grid;grid-template-columns:repeat(4,1fr);color:#fff;text-align:center;}
+.vx-stat{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;}
+.vx-stat .ic{width:16px;height:16px;}
+.vx-stat-val{font-size:14px;font-weight:600;}
+.vx-stat-lbl{font-size:13px;font-weight:700;}
+.vx-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
+.vx-tile{background:linear-gradient(135deg,var(--vx-g2),var(--vx-g1));color:#fff;border-radius:8px;height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-size:10px;font-weight:700;}
+.vx-tile:active{transform:scale(.97);}
+.vx-tile .ic{width:18px;height:18px;}
+.vx-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.vx-link{background:var(--surface);border-radius:8px;padding:18px 12px;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.vx-link-ic{color:var(--vx-g3);width:18px;height:18px;}
+.vx-link-title{font-size:13px;font-weight:800;color:var(--text);}
+.vx-link-sub{font-size:12px;color:var(--muted);line-height:1.5;}
+.bottom-nav{background:var(--vx-dark);border-top:none;grid-template-columns:repeat(4,1fr);gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));}
+.nav-item{background:var(--vx-g3);border-radius:8px;padding:10px 4px;gap:4px;color:#fff;}
+.nav-item.active{background:var(--vx-g1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);}
+.nav-item .ic{width:18px;height:18px;}
+.nav-label{font-size:11px;font-weight:600;text-transform:none;color:#fff;letter-spacing:0;}
+.nav-item.active .nav-label{color:#fff;}
+.dashboard-page{padding-bottom:110px;}
+.app-footer{bottom:76px;}
+.zx-support-wrap{bottom:96px;}
+.zx-support-btn{width:56px;height:56px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;background:var(--vx-g3);box-shadow:0 4px 16px rgba(22,163,74,.45);}
+.zx-support-btn .ic{width:24px;height:24px;}
+</style>
+</head>
+<body>
+
+<!-- Animated Particle Background -->
+<div class="loading-screen" id="loading-screen">
+  <div class="loading-text" style="font-size:18px;font-weight:600;letter-spacing:2px;margin-top:20px;">Loading<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></div>
+</div>
+
+<!-- LOGIN -->
+<div class="auth-page" id="login-page">
+  <div class="auth-hero">
+    <div class="auth-logo"><img src="https://tuvko.github.io/PlatinumPeakHub/logo.png" style="width:100%;height:100%;object-fit:contain;"></div>
+    <div class="auth-brand">Voxi</div>
+    <div class="auth-tagline">Grow Your Wealth Daily</div>
+  </div>
+  <div class="auth-card">
+    <div class="auth-title">Welcome Back</div>
+    <div class="auth-subtitle">Sign in to your investment account</div>
+    <div class="field-group">
+      <label class="field-label">Username</label>
+      <div class="field-wrap"><input type="text" id="login-username" placeholder="Enter your username"></div>
+      <div class="field-error" id="login-user-err">Please enter your username</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Password</label>
+      <div class="field-wrap"><input type="password" id="login-password" placeholder="Enter password"><button class="eye-btn" onclick="toggleEye('login-password',this,true)">Show</button></div>
+      <div class="field-error" id="login-pw-err">Please enter your password</div>
+    </div>
+    <div class="field-error" id="login-general-err" style="text-align:center;margin-bottom:10px;font-size:12px;"></div>
+    <button class="submit-btn" onclick="doLogin()">Sign In →</button>
+    <div class="auth-switch">Don't have an account? <a onclick="showAuth('register-page')">Sign Up</a></div>
+  </div>
+</div>
+
+<!-- REGISTER -->
+<div class="auth-page" id="register-page">
+  <div class="auth-hero">
+    <div class="auth-logo"><img src="https://tuvko.github.io/PlatinumPeakHub/logo.png" style="width:100%;height:100%;object-fit:contain;"></div>
+    <div class="auth-brand">Voxi</div>
+    <div class="auth-tagline">Start Earning Today</div>
+  </div>
+  <div class="auth-card">
+    <div style="text-align:center;margin-bottom:16px;padding:10px;background:rgba(212,175,55,0.1);border-radius:8px;border:1px solid rgba(212,175,55,0.3);">
+      <div style="font-size:12px;color:#999999;">Referred by: <strong id="reg-referrer-msg" style="color:var(--accent);">None</strong></div>
+    </div>
+    <div class="auth-title">Sign Up</div>
+    <div class="auth-subtitle" style="color:#22c55e;font-size:9px;">All transactions are processed automatically with PEGASUS TECHNOLOGIES LIMITED and MARZ INNOVATIONS LIMITED</div>
+    <div class="field-group">
+      <label class="field-label">Username</label>
+      <div class="field-wrap"><input type="text" id="reg-username" placeholder="Choose a username"></div>
+      <div class="field-error" id="reg-user-err">Username is required</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Country</label>
+      <div class="field-wrap">
+        <select id="reg-country" onchange="updateRegPrefix()">
+          <option value="">Select your country</option>
+          <option value="UG" selected>Uganda</option>
+          <option value="SS">South Sudan</option>
+          <option value="RW">Rwanda</option>
+          <option value="KE">Kenya</option>
+          <option value="TZ">Tanzania</option>
+          <option value="BI">Burundi</option>
+          <option value="ET">Ethiopia</option>
+          <option value="SO">Somalia</option>
+          <option value="CD">DR Congo</option>
+          <option value="ZM">Zambia</option>
+          <option value="MW">Malawi</option>
+          <option value="MZ">Mozambique</option>
+          <option value="NG">Nigeria</option>
+          <option value="GH">Ghana</option>
+          <option value="ZW">Zimbabwe</option>
+          <option value="SD">Sudan</option>
+        </select>
+      </div>
+      <div class="field-error" id="reg-country-err">Please select your country</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Phone Number</label>
+      <div class="field-wrap"><input type="tel" id="reg-phone" placeholder="0712345678" maxlength="10" oninput="regPhoneInput(this)"></div>
+      <div class="field-hint">10 digits starting with 0</div>
+      <div class="field-error" id="reg-phone-err">Enter 10 digits starting with 0</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Email</label>
+      <div class="field-wrap"><input type="email" id="reg-email" placeholder="Enter your email"></div>
+      <div class="field-error" id="reg-email-err">Enter a valid email address</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Password</label>
+      <div class="field-wrap"><input type="password" id="reg-password" placeholder="Min. 5 characters"><button class="eye-btn" onclick="toggleEye('reg-password',this,true)">Show</button></div>
+      <div class="field-error" id="reg-pw-err">Password must be at least 5 characters</div>
+    </div>
+    <div class="field-error" id="reg-general-err" style="text-align:center;margin-bottom:10px;font-size:12px;"></div>
+    <button class="submit-btn" onclick="doRegister()">Sign Up & Earn</button>
+    <div class="auth-switch">Already have an account? <a onclick="showAuth('login-page')">Sign In</a></div>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="dashboard-page" id="dashboard-page">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></div>
+      <div class="brand"><div class="brand-name vx-brand">Voxi</div></div>
+    </div>
+    <div class="topbar-right">
+      <div class="vx-icon-btn" onclick="toggleFullscreen()" title="Fullscreen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></div>
+      <div class="vx-icon-btn" onclick="toggleTheme()" title="Dark mode"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+      <div class="vx-avatar vx-avatar-sm" id="top-avatar" onclick="switchTab('profile')">V</div>
+      <div class="username-top" id="dash-username" style="display:none;">—</div>
+    </div>
+  </div>
+
+  <!-- HOME / Main -->
+  <div class="dash-section active" id="sec-home">
+    <div class="section vx-first">
+      <div class="vx-welcome">
+        <div class="vx-avatar" id="home-avatar">V</div>
+        <div class="vx-welcome-body">
+          <div class="vx-welcome-text">Welcome back, <span id="home-welcome-name">—</span></div>
+          <button class="vx-copy-btn" onclick="copyRef()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy Referral Link</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-stats">
+        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><div class="vx-stat-val" id="stat-balance">0</div><div class="vx-stat-lbl">Balance</div></div>
+        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><div class="vx-stat-val" id="stat-income">0</div><div class="vx-stat-lbl">Earnings</div></div>
+        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><div class="vx-stat-val" id="stat-stake">0</div><div class="vx-stat-lbl">Invested</div></div>
+        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg><div class="vx-stat-val" id="stat-withdrawn">0</div><div class="vx-stat-lbl">Withdraws</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-actions">
+        <div class="vx-tile" onclick="switchTab('deposit')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Invest</span></div>
+        <div class="vx-tile" onclick="switchTab('withdraw')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg><span>Withdraw</span></div>
+        <div class="vx-tile" onclick="switchTab('reinvest')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg><span>Re-invest</span></div>
+        <div class="vx-tile" onclick="switchTab('deposits-log')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Records</span></div>
+        <div class="vx-tile" onclick="switchTab('team')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Referrals</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-links">
+        <a class="vx-link" id="home-wa-group" href="#" target="_blank" rel="noopener">
+          <svg class="ic vx-link-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><div class="vx-link-title">WHATSAPP GROUP 1</div><div class="vx-link-sub">Join our main WhatsApp group</div>
+        </a>
+        <a class="vx-link" id="home-telegram" href="#" target="_blank" rel="noopener">
+          <svg class="ic vx-link-ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><div class="vx-link-title">TELEGRAM GROUP</div><div class="vx-link-sub">Join our official Telegram community</div>
+        </a>
+      </div>
+    </div>
+
+    <span id="ref-url" style="display:none;"></span>
+  </div>
+
+  <!-- ZxSupport Floating Tab -->
+  <div class="zx-support-wrap">
+    <div class="zx-support-dropdown" id="zx-support-dropdown">
+      <a href="#" id="zx-telegram-link" class="zx-support-item" target="_blank">Telegram Channel</a>
+      <a href="#" id="zx-wa-group-link" class="zx-support-item" target="_blank">WhatsApp Community</a>
+      <a href="#" id="zx-wa-support-link" class="zx-support-item" target="_blank">WhatsApp Support Chat</a>
+    </div>
+    <button class="zx-support-btn" onclick="toggleSupportMenu()" aria-label="Support"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></button>
+  </div>
+
+  <!-- History - New Card Design -->
+  <div class="dash-section" id="sec-deposits-log">
+    <div class="inner-header"><div><div class="inner-title">Deposits</div><div class="inner-sub">Your deposit history</div></div></div>
+    <div class="section">
+      <div id="deposits-log-list" class="tx-line-list"><div class="tx-empty-state"><div class="tx-empty-title">No Deposits Yet</div><div class="tx-empty-text">Your deposit history will appear here.</div></div></div>
+    </div>
+  </div>
+
+  <div class="dash-section" id="sec-withdrawals-log">
+    <div class="inner-header"><div><div class="inner-title">Withdrawals</div><div class="inner-sub">Your withdrawal history</div></div></div>
+    <div class="section">
+      <div id="withdrawals-log-list" class="tx-line-list"><div class="tx-empty-state"><div class="tx-empty-title">No Withdrawals Yet</div><div class="tx-empty-text">Your withdrawal history will appear here.</div></div></div>
+    </div>
+  </div>
+
+  <div class="dash-section" id="sec-profits-log">
+    <div class="inner-header"><div><div class="inner-title">Daily Profits</div><div class="inner-sub">Your profit history</div></div></div>
+    <div class="section">
+      <div id="profits-log-list" class="tx-line-list"><div class="tx-empty-state"><div class="tx-empty-title">No Profits Yet</div><div class="tx-empty-text">Your daily profits will appear here.</div></div></div>
+    </div>
+  </div>
+
+  <div class="dash-section" id="sec-referrals-log">
+    <div class="inner-header"><div><div class="inner-title">Referral Bonuses</div><div class="inner-sub">Your referral earnings history</div></div></div>
+    <div class="section">
+      <div id="referrals-log-list" class="tx-line-list"><div class="tx-empty-state"><div class="tx-empty-title">No Referral Bonuses Yet</div><div class="tx-empty-text">Your referral bonuses will appear here.</div></div></div>
+    </div>
+  </div>
+
+  <!-- Referral Team -->
+  <div class="dash-section" id="sec-team">
+    <div class="inner-header"><div><div class="inner-title">Invite</div><div class="inner-sub">Grow your network &amp; earn</div></div></div>
+    
+    <!-- 2 Stats Cards -->
+    <div class="section">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="ref-stat-box" style="padding:10px;border:1px solid var(--border);border-radius:10px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">EARNED</div>
+          <div style="font-size:16px;font-weight:800;color:var(--accent);" id="total-ref-earned-new">UGX 0</div>
+        </div>
+        <div class="ref-stat-box" style="padding:10px;border:1px solid var(--border);border-radius:10px;text-align:center;">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">REFERRALS</div>
+          <div style="font-size:16px;font-weight:800;color:var(--success);" id="ref-team-count">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Referral Link Section -->
+    <div class="section">
+      <div style="padding:16px;border:1px solid var(--accent);border-radius:12px;background:rgba(212,175,55,0.08);">
+        <div style="display:flex;gap:8px;">
+          <input type="text" class="ref-link-input" id="ref-url-new" readonly style="flex:1;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:12px;">
+          <button class="ref-copy-btn" onclick="copyRef()" style="padding:10px 16px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unified Referral Members List -->
+    <div class="section">
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;">📋 Your Network</div>
+      <div id="ref-members-new" style="display:flex;flex-direction:column;gap:8px;">
+        <div class="ref-empty-state"><div class="ref-empty-msg">No team members yet</div><div class="ref-empty-hint">Invite friends to start earning</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Financing / Loans -->
+  <div class="dash-section" id="sec-financing">
+    <div class="inner-header"><div><div class="inner-title">Financing</div><div class="inner-sub">Borrow against your active capital</div></div></div>
+
+    <div class="section" id="financing-not-qualified" style="display:none;">
+      <div class="fin-card">
+        <div class="fin-card-title">Financing Qualification</div>
+        <div class="fin-req-row">
+          <span class="fin-req-label">Active Capital</span>
+          <span class="fin-req-value" id="fin-req-capital">UGX 0 / UGX 100,000</span>
+        </div>
+        <div class="fin-req-row">
+          <span class="fin-req-label">Active Referrals</span>
+          <span class="fin-req-value" id="fin-req-referrals">0 / 40</span>
+        </div>
+        <div class="fin-note">Keep growing your active capital and inviting friends who invest to unlock Financing.</div>
+      </div>
+    </div>
+
+    <div class="section" id="financing-qualified" style="display:none;">
+      <div class="fin-card">
+        <div class="fin-card-title">You're Qualified</div>
+        <div class="fin-note">You can borrow up to your active capital. Total repayment is 110% of the loan amount (10% interest), automatically deducted from your daily profits until fully repaid.</div>
+        <div class="field-group" style="margin-top:14px;">
+          <label class="field-label">Loan Amount (UGX)</label>
+          <div class="field-wrap"><input type="number" id="loan-amount-input" placeholder="Enter amount"></div>
+          <div class="field-error" id="loan-amount-err">Enter a valid amount within your limit</div>
+        </div>
+        <button class="green-btn" id="loan-request-btn" onclick="requestLoan()">REQUEST LOAN</button>
+      </div>
+    </div>
+
+    <div class="section" id="financing-pending" style="display:none;">
+      <div class="fin-card">
+        <div class="fin-card-title">Request Pending</div>
+        <div class="fin-note">Your loan request of <strong id="fin-pending-amount">UGX 0</strong> is being reviewed. You'll be notified once it's ready.</div>
+      </div>
+    </div>
+
+    <div class="section" id="financing-active" style="display:none;">
+      <div class="fin-card">
+        <div class="fin-card-title">Active Loan</div>
+        <div class="fin-req-row">
+          <span class="fin-req-label">Amount Borrowed</span>
+          <span class="fin-req-value" id="fin-loan-principal">UGX 0</span>
+        </div>
+        <div class="fin-req-row">
+          <span class="fin-req-label">Total Owed (110%)</span>
+          <span class="fin-req-value" id="fin-loan-total">UGX 0</span>
+        </div>
+        <div class="fin-req-row">
+          <span class="fin-req-label">Remaining Balance</span>
+          <span class="fin-req-value" id="fin-loan-remaining" style="color:#ef4444;">UGX 0</span>
+        </div>
+        <div class="fin-note">Your daily profit is automatically applied to this balance until it reaches zero.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-section" id="sec-plan">
+    <div class="inner-header"><span style="font-size:22px">🎯</span><div><div class="inner-title">Yield</div><div class="inner-sub" id="yield-subtitle">10% daily for 50 days (500% total)</div></div></div>
+    <div class="section">
+      <div class="plan-wrap">
+        <div class="plan-header"><div class="plan-header-title" id="plan-header-title">✨ Unlock 10% Daily Growth — 50 Days to 500% Returns ✨</div></div>
+        <div class="table-wrapper">
+          <table class="plan-table" id="plan-table">
+            <thead id="plan-table-head"></thead>
+            <tbody id="plan-table-body"></tbody>
+           </table>
+        </div>
+        <div class="scroll-hint">← Swipe horizontally to see all columns →</div>
+        <div style="padding:12px 14px;text-align:center;background:#1a1a1a;border-top:2px solid #333333;">
+          <div style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:#4ade80;">💎 Every deposit is a step closer to your peak.</div>
+          <div style="font-size:10px;color:#b0b0b0;margin-top:4px;">Grow steadily, earn daily, and watch your wealth reach new heights. ✨</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile -->
+  <div class="dash-section" id="sec-profile">
+    <div class="inner-header"><div><div class="inner-title">About</div><div class="inner-sub">Your account details</div></div></div>
+    <div class="section">
+      <div class="acc-list">
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">Account Details<span class="acc-arrow">▾</span></div>
+          <div class="acc-body">
+            <div class="profile-simple-item"><span class="profile-simple-label">Username</span><span class="profile-simple-value" id="profile-user-simple">—</span></div>
+            <div class="profile-simple-item"><span class="profile-simple-label">Email Address</span><span class="profile-simple-value" id="profile-email-simple">—</span></div>
+            <div class="profile-simple-item"><span class="profile-simple-label">Registered Date</span><span class="profile-simple-value" id="profile-date-simple">—</span></div>
+            <div class="profile-simple-item"><span class="profile-simple-label">Referred By</span><span class="profile-simple-value" id="profile-referrer-simple">—</span></div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">How It Works<span class="acc-arrow">▾</span></div>
+          <div class="acc-body">
+            <p class="acc-text">Voxi pays 10% profit daily on your active deposited capital, for 50 days — a total return of 500% over the full cycle. Once your 50-day cycle completes, you can re-invest your balance to start a new cycle and keep earning.</p>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">How to Deposit<span class="acc-arrow">▾</span></div>
+          <div class="acc-body">
+            <p class="acc-text">Go to "Add Money" from your dashboard, enter your mobile money phone number and the amount you want to invest, then tap Invest Now. Your deposit is confirmed automatically once payment goes through, and your 50-day earning cycle begins right away.</p>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">How to Withdraw<span class="acc-arrow">▾</span></div>
+          <div class="acc-body">
+            <p class="acc-text">Go to "Withdraw" from your dashboard, enter the amount you want to cash out, then tap Withdraw. Funds are sent automatically to your registered mobile money number — no manual approval needed.</p>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAccordion(this)">How to Refer Friends<span class="acc-arrow">▾</span></div>
+          <div class="acc-body">
+            <p class="acc-text">Share your personal invite link from the Referrals page with friends and family. When they sign up and invest, you automatically earn a commission on their deposit — plus smaller commissions on your 2nd and 3rd level network too.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="logout-btn-new" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+
+  <!-- Deposit -->
+  <div class="dash-section" id="sec-deposit">
+    <div class="inner-header"><div><div class="inner-title">Invest</div><div class="inner-sub">Add funds to your DEPOSITED</div></div></div>
+    <div class="deposit-note" id="dep-min-note" style="display:none;"></div>
+    <div class="section">
+      <div class="action-card">
+        <div class="field-group">
+          <label class="field-label">Mobile Money Phone Number</label>
+          <div class="field-wrap"><input type="tel" id="dep-phone" placeholder="0712345678" maxlength="10" style="padding:10px 12px;font-size:13px;" oninput="depPhoneInput(this)"></div>
+          <div class="field-hint">10 digits starting with 0</div>
+          <div class="field-error" id="dep-phone-err">Enter 10 digits starting with 0</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Amount to Invest (UGX)</label>
+          <div class="field-wrap"><input type="number" id="dep-amount" placeholder="Min 10,000 — Max 2,350,000" min="10000" max="2350000" style="padding:10px 12px;font-size:13px;"></div>
+          <div class="field-error" id="dep-amount-err">Please check the amount limits</div>
+        </div>
+        <div class="deposit-note" id="tax-note" style="display:none;font-size:11px;background:rgba(77, 217, 232, .1);border-color:rgba(77, 217, 232, .3);color:var(--muted);">You will pay: <strong id="tax-amount">UGX 0</strong> (includes 4% URA tax)</div>
+        <button class="green-btn" id="dep-submit-btn" onclick="doDeposit()">INVEST NOW</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Withdraw -->
+  <div class="dash-section" id="sec-withdraw">
+    <div class="inner-header"><div><div class="inner-title">Withdraw</div><div class="inner-sub">Cash out your BALANCE</div></div></div>
+    <div class="section">
+      <div id="withdraw-locked-msg" class="locked-banner" style="display:none">Withdrawals are currently disabled. Please contact support.</div>
+      <div class="action-card">
+        <div class="charge-note" style="display:none;">Withdrawal fee: <span id="with-fee-percent">10</span>% of amount. You receive <span id="with-receive-percent">90</span>% of requested amount.</div>
+        <div class="deposit-note" style="font-size:11px;">Funds will be sent to your registered mobile money number: <strong id="with-phone-note">—</strong>. To change it, contact support.</div>
+        <div class="field-group">
+          <label class="field-label">Amount (UGX)</label>
+          <div class="field-wrap"><input type="number" id="with-amount" placeholder="Enter amount" min="5000" oninput="updateWithdrawPreview()"></div>
+          <div class="field-error" id="with-amount-err">Minimum withdrawal is <span id="with-min-display">UGX 10,000</span></div>
+        </div>
+        <div id="withdraw-preview" style="background:var(--surface2);border-radius:10px;padding:12px;margin-bottom:12px;font-size:12px;display:none;">
+          <span>You receive: </span><strong id="withdraw-net-amount">UGX 0</strong><br>
+          <span>Fee: </span><strong id="withdraw-fee-amount">UGX 0</strong>
+        </div>
+        <button class="red-btn" id="with-submit-btn" onclick="doWithdraw()">WITHDRAW</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Re-Invest -->
+  <div class="dash-section" id="sec-reinvest">
+    <div class="inner-header"><div><div class="inner-title">Re-Invest</div><div class="inner-sub">Compound your earnings</div></div></div>
+    <div class="section">
+      <div class="action-card">
+        <div class="deposit-note">Re-invest from your <strong>BALANCE</strong> to <strong>DEPOSITED</strong>. Minimum <strong>UGX 10,000</strong>. Earns 10% instant profit + restarts 50-day cycle.</div>
+        <div class="field-group">
+          <label class="field-label">Available BALANCE</label>
+          <div class="field-wrap"><span class="field-icon">💼</span><div class="readonly-field" id="reinvest-balance-display">UGX 0</div></div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Amount to Re-Invest (UGX)</label>
+          <div class="field-wrap"><span class="field-icon">🔄</span><input type="number" id="reinvest-amount" placeholder="Minimum 10,000" min="10000"></div>
+          <div class="field-error" id="reinvest-amount-err">Minimum re-invest is UGX 10,000</div>
+        </div>
+        <button class="green-btn" onclick="doReinvest()">RE-INVEST NOW</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="nav-item active" onclick="switchTab('home')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></div>
+    <div class="nav-item" onclick="switchTab('plan')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><span class="nav-label">Packages</span></div>
+    <div class="nav-item" onclick="switchTab('profile')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="nav-label">Profile</span></div>
+    <div class="nav-item" onclick="switchTab('team')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">Invite</span></div>
+  </nav>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div class="footer-copyright">Copyright © 2026-2031 Voxi</div>
+    </div>
+  </footer>
+</div>
+
+<!-- MENU -->
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+<div class="side-menu" id="side-menu">
+  <div class="side-menu-header"><span class="side-menu-brand">Voxi</span><button class="close-menu" onclick="closeMenu()">✕</button></div>
+  <div class="side-menu-items">
+    <div class="menu-item active-menu" onclick="menuNav('home')">Dashboard</div>
+    <div class="menu-item" onclick="menuNav('deposit')">Deposit</div>
+    <div class="menu-item" onclick="menuNav('withdraw')">Withdraw</div>
+    <div class="menu-item" onclick="menuNav('reinvest')">Re-invest</div>
+    <div class="menu-item" onclick="menuNav('financing')">Financing</div>
+    <div class="menu-divider"></div>
+    <div class="menu-item" onclick="menuNav('deposits-log')">Deposits</div>
+    <div class="menu-item" onclick="menuNav('withdrawals-log')">Withdraws</div>
+    <div class="menu-item" onclick="menuNav('profits-log')">Daily Profits</div>
+    <div class="menu-item" onclick="menuNav('referrals-log')">Referral Bonuses</div>
+    <div class="menu-divider"></div>
+    <div class="menu-item" onclick="menuNav('team')">Referrals</div>
+    <div class="menu-item" onclick="menuNav('profile')">Profile</div>
+    <div class="menu-divider"></div>
+    <div class="menu-item" onclick="doLogout()" style="color:#ff6b6b;">Logout</div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon" id="modal-icon">📱</div>
+    <div class="modal-title" id="modal-title">Notice</div>
+    <div class="modal-msg" id="modal-msg">Please wait...</div>
+    <button class="modal-close" onclick="closeModal()">OK, Got It</button>
+  </div>
+</div>
+
+<!-- Terms Modal -->
+<div class="modal-overlay" id="terms-modal-overlay" onclick="closeTermsModal(event)">
+  <div class="modal-box" style="position:relative;">
+    <button style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--accent);padding:4px 8px;" onclick="closeTermsModal()">✕</button>
+    <div class="modal-icon">📋</div>
+    <div class="modal-title">Terms of Service</div>
+    <div class="modal-msg" style="text-align:left;">
+      <strong>1. Introduction</strong><br>
+      Welcome to Voxi. These Terms of Service govern your use of our investment platform.<br><br>
+      
+      <strong>2. User Responsibilities</strong><br>
+      You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account.<br><br>
+      
+      <strong>3. Investment Risks</strong><br>
+      All investments carry risk. Voxi does not guarantee returns. Past performance is not indicative of future results.<br><br>
+      
+      <strong>4. Prohibited Activities</strong><br>
+      You may not use Voxi for any illegal activities, fraud, or unauthorized access.<br><br>
+      
+      <strong>5. Limitation of Liability</strong><br>
+      Voxi is provided "as is" without warranties. We are not liable for any indirect or consequential damages.<br><br>
+      
+      <strong>6. Modifications</strong><br>
+      We reserve the right to modify these terms at any time. Your continued use constitutes acceptance of changes.<br><br>
+      
+      <strong>7. Governing Law</strong><br>
+      These terms are governed by the laws of Uganda and Kenya as applicable.
+    </div>
+  </div>
+</div>
+
+<!-- Privacy Modal -->
+<div class="modal-overlay" id="privacy-modal-overlay" onclick="closePrivacyModal(event)">
+  <div class="modal-box" style="position:relative;">
+    <button style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--accent);padding:4px 8px;" onclick="closePrivacyModal()">✕</button>
+    <div class="modal-icon">🔒</div>
+    <div class="modal-title">Privacy Policy</div>
+    <div class="modal-msg" style="text-align:left;">
+      <strong>1. Information We Collect</strong><br>
+      We collect personal information including name, phone number, email, and transaction history to provide our services.<br><br>
+      
+      <strong>2. How We Use Information</strong><br>
+      Your information is used to process transactions, prevent fraud, improve our services, and comply with legal obligations.<br><br>
+      
+      <strong>3. Data Protection</strong><br>
+      We implement industry-standard security measures to protect your data from unauthorized access.<br><br>
+      
+      <strong>4. Third-Party Sharing</strong><br>
+      We do not sell your personal information. We may share data with payment processors and legal authorities when required.<br><br>
+      
+      <strong>5. Cookies & Tracking</strong><br>
+      We use cookies and similar technologies to enhance user experience and analyze platform usage.<br><br>
+      
+      <strong>6. Your Rights</strong><br>
+      You have the right to access, modify, or delete your personal information at any time.<br><br>
+      
+      <strong>7. Contact Us</strong><br>
+      For privacy concerns, contact our support team via the WhatsApp links in the app.
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ Done!</div>
+<div class="popup-banner" id="popup-banner"></div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+// ============================================================
+// PROFIT PULSE - FIREBASE REALTIME DATABASE WITH MARZPAY
+// FIXED: Daily profit pays on new day login + Silent mode + No user popups
+// ============================================================
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCyx6G1lCz2BZ1HUYx7qE0B4ITpMfZ7Uj0",
+  authDomain: "voxi-5fdc4.firebaseapp.com",
+  projectId: "voxi-5fdc4",
+  storageBucket: "voxi-5fdc4.firebasestorage.app",
+  messagingSenderId: "14952761590",
+  appId: "1:14952761590:web:d733fcd3c1bf2aa1bfc4d7",
+  databaseURL: "https://voxi-5fdc4-default-rtdb.europe-west1.firebasedatabase.app"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+const MARZ_API = 'https://polished-truth-f9c5.vallazvallax.workers.dev';
+
+function num(n) { return Number(n || 0).toLocaleString(); }
+function fmt(n) { return 'UGX ' + Number(n || 0).toLocaleString(); }
+function dateStr() { 
+  const d = new Date(); 
+  return d.toLocaleDateString('en-UG', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' + d.toLocaleTimeString('en-UG', { hour: '2-digit', minute: '2-digit' }); 
+}
+// ============================================================
+// FIXED: Use LOCAL timezone for date key (not UTC)
+// Format: YYYY-MM-DD based on user's local time
+// ============================================================
+function getDateKey(d) {
+  if (!d) d = new Date();
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+// Helper: Parse date string (YYYY-MM-DD) to local Date object at 00:00:00
+function parseDateKey(dateStr) {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  return new Date(year, month - 1, day, 0, 0, 0, 0);
+}
+
+// Helper: Calculate days between two date strings
+function daysBetweenDateKeys(startDateStr, endDateStr) {
+  const startDate = parseDateKey(startDateStr);
+  const endDate = parseDateKey(endDateStr);
+  const diffTime = endDate - startDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
+
+function safeKey(u) { return (u || '').replace(/[.#$\[\]]/g, '_'); }
+function genUUID() { return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)); }
+
+let currentUser = null;
+let currentUsername = null;
+let settingsData = {
+  uraTax: 4, withdrawCharge: 10, refL1: 10, refL2: 5, refL3: 2,
+  waGroup: '', waSupport: '', telegramLink: '', withdrawLocked: false, withdrawApproval: false,
+  minDeposit: 10000, maxDeposit: 2350000, minWithdraw: 10000, waNumber: '700000000', marzApiKey: ''
+};
+let profitInterval = null;
+let userListener = null;
+
+// ============================================================
+// FIXED: Daily profit calculation (ONCE per calendar day) - ATOMIC UPDATE
+// Reads fresh data from Firebase, calculates profit, updates atomically
+// ============================================================
+async function calculateAndPayDailyProfits() {
+  if (!currentUsername) return;
+  
+  try {
+    // STEP 1: Read FRESH data from Firebase (not from currentUser cache)
+    const userRef = db.ref('users/' + safeKey(currentUsername));
+    const freshSnap = await userRef.get();
+    if (!freshSnap.exists()) return;
+    
+    const userData = freshSnap.val();
+    const stake = userData.stake || 0;
+    
+    // No stake = no profit
+    if (stake <= 0) return;
+    
+    // STEP 2: Get today's date key
+    const todayKey = getDateKey(new Date());
+    const lastProfitDate = userData.lastProfitDate || null;
+    
+    // STEP 3: Check if already paid today
+    // This is the KEY to paying only ONCE per day
+    if (lastProfitDate === todayKey) {
+      // Already paid today - exit silently
+      return;
+    }
+    
+    // STEP 4: Calculate days difference
+    let daysDiff = 1; // At least 1 day has passed
+    if (lastProfitDate) {
+      daysDiff = daysBetweenDateKeys(lastProfitDate, todayKey);
+      // If no days difference, don't pay
+      if (daysDiff <= 0) return;
+    }
+    
+    // STEP 5: Calculate profit
+    const dailyProfit = Math.floor(stake * 0.10);
+    let totalProfit = dailyProfit * daysDiff;
+
+    // STEP 5B: Intercept profit for active loan repayment, if any
+    let loanUpdateFields = {};
+    let loanRepaidNote = '';
+    const activeLoan = userData.activeLoan || null;
+    if (activeLoan && activeLoan.status === 'active') {
+      const remaining = activeLoan.remaining || 0;
+      if (totalProfit >= remaining) {
+        // Loan fully repaid; remainder (if any) goes to balance
+        const leftover = totalProfit - remaining;
+        loanUpdateFields.activeLoan = null;
+        loanRepaidNote = 'Loan repayment (final): -' + remaining;
+        totalProfit = leftover;
+      } else {
+        // Entire profit goes to loan; nothing left for balance today
+        loanUpdateFields.activeLoan = Object.assign({}, activeLoan, { remaining: remaining - totalProfit });
+        loanRepaidNote = 'Loan repayment: -' + totalProfit;
+        totalProfit = 0;
+      }
+    }
+    
+    // STEP 6: Update balance
+    const currentBalance = userData.balance || 0;
+    const newBalance = currentBalance + totalProfit;
+    
+    // STEP 6B: Update total earnings
+    const currentTotalEarned = userData.totalEarned || 0;
+    const newTotalEarned = currentTotalEarned + totalProfit;
+    
+    // STEP 7: Update daysRun in activeInvestment
+    let newDaysRun = (userData.activeInvestment?.daysRun || 0) + daysDiff;
+    if (newDaysRun > 56) newDaysRun = 56;
+    
+    // STEP 8: Prepare activeInvestment object (handle if null/missing)
+    let updatedActiveInvestment = userData.activeInvestment || { daysRun: 0 };
+    updatedActiveInvestment.daysRun = newDaysRun;
+    
+    // STEP 9: ATOMIC UPDATE - write everything together
+    const profitTimestamp = Date.now();
+    const dayLabel = daysDiff === 1 ? '1 day' : daysDiff + ' days';
+    const updates = Object.assign({
+      balance: newBalance,
+      totalEarned: newTotalEarned,
+      lastProfitDate: todayKey,
+      activeInvestment: updatedActiveInvestment,
+      [`transactions/tx_dailyprofit_${profitTimestamp}`]: { type: 'Profit', amount: dailyProfit * daysDiff, note: 'Daily profit (' + dayLabel + ')', date: dateStr(), status: 'completed', timestamp: profitTimestamp }
+    }, loanUpdateFields);
+
+    if (loanRepaidNote) {
+      updates[`transactions/tx_loanrepay_${profitTimestamp}`] = { type: 'Loan', amount: -(dailyProfit * daysDiff - totalProfit), note: loanRepaidNote, date: dateStr(), status: 'completed', timestamp: profitTimestamp + 1 };
+    }
+    
+    await userRef.update(updates);
+    
+    // STEP 10: Update currentUser so UI reflects changes immediately
+    currentUser = await userRef.get().then(snap => snap.val());
+    updateBalanceUI();
+    
+    // Silent success - no toast notification
+  } catch (error) {
+    console.error('Profit calculation error:', error);
+  }
+}
+
+// ============================================================
+// Loading screen hides immediately after login check
+// ============================================================
+// Force fresh data when tab becomes visible again (mobile browsers suspend
+// background tabs, which can silently drop the realtime WebSocket connection)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && currentUsername) {
+    forceRefreshUserData();
+  }
+});
+
+async function forceRefreshUserData() {
+  try {
+    const [userSnap, settingsSnap] = await Promise.all([
+      db.ref('users/' + safeKey(currentUsername)).get(),
+      db.ref('settings').get()
+    ]);
+    if (userSnap.exists()) {
+      currentUser = userSnap.val();
+      await calculateAndPayDailyProfits().catch(err => console.warn('Profit calc error:', err));
+      updateBalanceUI();
+      renderHistory();
+      renderTeam();
+      updateProfileUI();
+    }
+    if (settingsSnap.exists()) {
+      Object.assign(settingsData, settingsSnap.val());
+      updateUIWithSettings();
+    }
+  } catch (e) { console.warn('Force refresh error:', e); }
+}
+
+async function initApp() {
+  initTheme();
+  startSettingsListener();
+  
+  const savedUser = sessionStorage.getItem('pp_current_user');
+  if (savedUser) {
+    try {
+      const userSnap = await db.ref('users/' + safeKey(savedUser)).get();
+      if (userSnap.exists() && !userSnap.val().locked) {
+        currentUser = userSnap.val();
+        currentUsername = savedUser;
+        
+        // PROFIT CALCULATION FIRST - before UI updates
+        // This ensures balance is updated with today's profit before UI renders
+        await calculateAndPayDailyProfits().catch(err => console.warn('Profit calc error:', err));
+        
+        // CHECK PENDING DEPOSITS SILENTLY - in background
+        checkPendingDeposits(savedUser).catch(err => console.warn('Pending deposits check error:', err));
+        
+        // Re-fetch user data after profit calculation to get updated balance
+        const updatedSnap = await db.ref('users/' + safeKey(savedUser)).get();
+        if (updatedSnap.exists()) {
+          currentUser = updatedSnap.val();
+        }
+        
+        // Now show UI with updated balance
+        startUserListener(savedUser);
+        updateBalanceUI();
+        renderHistory();
+        renderTeam();
+        updateReferralLink();
+        updateProfileUI();
+        updateSupportLinks();
+        showDashboard();
+        switchTab('home');
+        startDailyProfitLoop();
+        startInactivityWatcher();
+      } else {
+        sessionStorage.removeItem('pp_current_user');
+        showAuth('login-page');
+      }
+    } catch (err) {
+      console.warn('Login check error:', err);
+      sessionStorage.removeItem('pp_current_user');
+      showAuth('login-page');
+    }
+  } else {
+    showAuth('login-page');
+  }
+  
+  // HIDE LOADING SCREEN IMMEDIATELY
+  document.getElementById('loading-screen').style.display = 'none';
+}
+
+// Background profit loop (every 30 min) - SILENT
+function startDailyProfitLoop() {
+  if (profitInterval) clearInterval(profitInterval);
+  profitInterval = setInterval(() => {
+    if (currentUser && currentUsername) {
+      calculateAndPayDailyProfits().catch(err => console.warn('Profit interval error:', err));
+    }
+  }, 1800000);
+}
+
+// ============================================================
+// SILENT FUNCTIONS - No user-facing toasts or modals
+// ============================================================
+function showToast(msg, color) {
+  // COMPLETELY DISABLED - users see no toasts
+  // Function kept empty to prevent errors
+}
+
+function showModal(icon, title, msg) {
+  // COMPLETELY DISABLED - users see no modals
+  // Function kept empty to prevent errors
+}
+
+function closeModal() { 
+  // Disabled
+}
+
+function setErr(id, show, msg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (show) { el.classList.add('show'); if (msg) el.textContent = msg; }
+  else { el.classList.remove('show'); }
+}
+
+function clearErrors(...ids) { ids.forEach(id => setErr(id, false)); }
+
+function toggleEye(inputId, btn, textMode) {
+  const inp = document.getElementById(inputId);
+  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = textMode ? 'Hide' : '🙈'; }
+  else { inp.type = 'password'; btn.textContent = textMode ? 'Show' : '👁️'; }
+}
+
+function updateRegPrefix() {
+  const c = document.getElementById('reg-country').value;
+  const pr = document.getElementById('reg-prefix');
+  const prefixes = {
+    'UG': '+256',
+    'SS': '+211',
+    'RW': '+250',
+    'KE': '+254',
+    'TZ': '+255',
+    'BI': '+257',
+    'ET': '+251',
+    'SO': '+252',
+    'CD': '+243',
+    'ZM': '+260',
+    'MW': '+265',
+    'MZ': '+258',
+    'NG': '+234',
+    'GH': '+233',
+    'ZW': '+263',
+    'SD': '+249'
+  };
+  if (pr) pr.textContent = prefixes[c] || '+256';
+}
+
+function regPhoneInput(inp) { inp.value = inp.value.replace(/\D/g, '').slice(0, 10); }
+function depPhoneInput(inp) { inp.value = inp.value.replace(/\D/g, '').slice(0, 10); }
+
+function copyRef() {
+  const url = document.getElementById('ref-url-new');
+  if (url && url.value) {
+    navigator.clipboard.writeText(url.value).then(() => {
+      // Silent copy - no toast
+    });
+  }
+}
+
+function toggleFullscreen() {
+  try {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  } catch (e) {}
+}
+function toggleTheme() {
+  const dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  try { localStorage.setItem('voxi-theme', dark ? 'dark' : 'light'); } catch (e) {}
+}
+(function () {
+  try { if (localStorage.getItem('voxi-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+})();
+
+function toggleSupportMenu() {
+  const dropdown = document.getElementById('zx-support-dropdown');
+  if (dropdown) dropdown.classList.toggle('open');
+}
+
+function updateSupportLinks() {
+  const telegramLink = document.getElementById('zx-telegram-link');
+  const waGroupLink = document.getElementById('zx-wa-group-link');
+  const waSupportLink = document.getElementById('zx-wa-support-link');
+  if (telegramLink) telegramLink.href = settingsData.telegramLink || '#';
+  const homeTg = document.getElementById('home-telegram');
+  const homeWa = document.getElementById('home-wa-group');
+  if (homeTg) homeTg.href = settingsData.telegramLink || '#';
+  if (homeWa) homeWa.href = settingsData.waGroup || '#';
+  if (waGroupLink) waGroupLink.href = settingsData.waGroup || '#';
+  if (waSupportLink && currentUser) {
+    const phone = settingsData.waNumber || '700000000';
+    const message = `Hey, I'm ${currentUser.username}, I need assistance with my Voxi investment account. Please help me!`;
+    waSupportLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  }
+}
+
+function showAuth(id) {
+  document.querySelectorAll('.auth-page').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+  const t = document.getElementById(id);
+  if (t) { t.style.display = 'flex'; t.classList.add('active'); }
+  if (id === 'register-page') {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref') || null;
+    const refMsg = document.getElementById('reg-referrer-msg');
+    if (refMsg) refMsg.textContent = refCode || 'None';
+  }
+}
+
+function showDashboard() {
+  document.querySelectorAll('.auth-page').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+  document.getElementById('dashboard-page').style.display = 'block';
+  document.getElementById('dashboard-page').classList.add('active');
+}
+
+function openMenu() {
+  document.getElementById('side-menu').classList.add('open');
+  document.getElementById('menu-overlay').classList.add('open');
+}
+
+function closeMenu() {
+  document.getElementById('side-menu').classList.remove('open');
+  document.getElementById('menu-overlay').classList.remove('open');
+}
+
+function initTheme() {
+  const root = document.documentElement;
+  root.style.setProperty('--bg', '#ffffff');
+  root.style.setProperty('--surface', '#ffffff');
+  root.style.setProperty('--surface2', '#f5f6f8');
+  root.style.setProperty('--surface3', '#eef0f3');
+  root.style.setProperty('--border', '#e2e4e8');
+  root.style.setProperty('--text', '#111111');
+  root.style.setProperty('--muted', '#6b7280');
+  root.style.setProperty('--accent3', '#2196f3');
+}
+
+function showTerms() { 
+  document.getElementById('terms-modal-overlay').classList.add('open');
+}
+function closeTermsModal(event) {
+  if (event && event.target.id !== 'terms-modal-overlay') return;
+  document.getElementById('terms-modal-overlay').classList.remove('open');
+}
+function showPrivacy() { 
+  document.getElementById('privacy-modal-overlay').classList.add('open');
+}
+function closePrivacyModal(event) {
+  if (event && event.target.id !== 'privacy-modal-overlay') return;
+  document.getElementById('privacy-modal-overlay').classList.remove('open');
+}
+
+const tabMap = { home: 'sec-home', 'deposits-log': 'sec-deposits-log', 'withdrawals-log': 'sec-withdrawals-log', 'profits-log': 'sec-profits-log', 'referrals-log': 'sec-referrals-log', team: 'sec-team', plan: 'sec-plan', profile: 'sec-profile', deposit: 'sec-deposit', withdraw: 'sec-withdraw', reinvest: 'sec-reinvest', financing: 'sec-financing' };
+const navOrder = ['home', 'plan', 'profile', 'team'];
+
+function switchTab(tab) {
+  if (tab === 'withdraw' && settingsData.withdrawLocked) {
+    // Silent - no modal
+    return;
+  }
+  Object.values(tabMap).forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('active'); });
+  const t = document.getElementById(tabMap[tab]);
+  if (t) t.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const idx = navOrder.indexOf(tab);
+  if (idx >= 0) document.querySelectorAll('.nav-item')[idx].classList.add('active');
+  if (tab === 'financing') renderFinancing();
+  closeMenu();
+}
+
+function menuNav(tab) { switchTab(tab); }
+
+function startSettingsListener() {
+  db.ref('settings').on('value', (snap) => {
+    if (snap.exists()) settingsData = { ...settingsData, ...snap.val() };
+    updateUIWithSettings();
+    if (currentUser) { renderTeam(); applyWithdrawLock(); }
+  });
+}
+
+function updateUIWithSettings() {
+  const minDep = settingsData.minDeposit || 10000;
+  const minWith = settingsData.minWithdraw || 10000;
+  const maxDep = settingsData.maxDeposit || 2350000;
+  const depNote = document.getElementById('dep-min-note');
+  if (depNote) depNote.innerHTML = `✅ Minimum deposit <strong>${fmt(minDep)}</strong> — Maximum <strong>${fmt(maxDep)}</strong>. Includes 4% URA tax added to amount you pay.`;
+  const withMinDisplay = document.getElementById('with-min-display');
+  if (withMinDisplay) withMinDisplay.textContent = fmt(minWith);
+  const withdrawLockedMsg = document.getElementById('withdraw-locked-msg');
+  if (withdrawLockedMsg) withdrawLockedMsg.style.display = settingsData.withdrawLocked ? 'block' : 'none';
+  const feePercent = document.getElementById('with-fee-percent');
+  if (feePercent) feePercent.textContent = settingsData.withdrawCharge || 10;
+  const receivePercent = document.getElementById('with-receive-percent');
+  if (receivePercent) receivePercent.textContent = 100 - (settingsData.withdrawCharge || 10);
+  const pctL1 = document.getElementById('ref-pct-l1-new');
+  const pctL2 = document.getElementById('ref-pct-l2-new');
+  const pctL3 = document.getElementById('ref-pct-l3-new');
+  if (pctL1) pctL1.textContent = (settingsData.refL1 || 10) + '%';
+  if (pctL2) pctL2.textContent = (settingsData.refL2 || 5) + '%';
+  if (pctL3) pctL3.textContent = (settingsData.refL3 || 2) + '%';
+  const withInp = document.getElementById('with-amount');
+  if (withInp) withInp.min = minWith;
+  const depAmount = document.getElementById('dep-amount');
+  if (depAmount) updateTaxPreview();
+  updatePlanTable();
+}
+
+function updatePlanTable() {
+  const earningPeriod = (settingsData && settingsData.earningPeriod) || 50;
+  const totalReturn = earningPeriod * 10;
+  
+  // Update Yield subtitle
+  const yieldSubtitle = document.getElementById('yield-subtitle');
+  if (yieldSubtitle) {
+    yieldSubtitle.textContent = `10% daily for ${earningPeriod} days (${totalReturn}% total)`;
+  }
+  
+  // Update header
+  const headerEl = document.getElementById('plan-header-title');
+  if (headerEl) {
+    headerEl.textContent = `✨ Unlock 10% Daily Growth — ${earningPeriod} Days to ${totalReturn}% Returns ✨`;
+  }
+  
+  // Update table header
+  const headEl = document.getElementById('plan-table-head');
+  if (headEl) {
+    headEl.innerHTML = `<tr><th>DEPOSIT (UGX)</th><th>DAILY PROFIT (10%)</th><th>${earningPeriod}-DAY TOTAL (UGX)</th></tr>`;
+  }
+  
+  // Generate table body rows
+  const deposits = [10000, 20000, 30000, 60000, 100000, 150000, 200000, 300000, 700000, 850000, 1000000, 1500000, 2500000, 5000000, 7500000, 10000000, 12000000, 15000000];
+  const bodyEl = document.getElementById('plan-table-body');
+  if (bodyEl) {
+    bodyEl.innerHTML = deposits.map(dep => {
+      const daily = Math.floor(dep * 0.10);
+      const total = daily * earningPeriod;
+      return `<tr><td>${fmt(dep)}</td><td>${fmt(daily)}</td><td>${fmt(total)}</td></tr>`;
+    }).join('');
+  }
+}
+
+function applyWithdrawLock() {
+  const locked = settingsData.withdrawLocked;
+  const wBtn = document.querySelector('.btn-withdraw');
+  if (wBtn) { wBtn.style.opacity = locked ? '0.35' : '1'; wBtn.style.pointerEvents = locked ? 'none' : 'auto'; }
+}
+
+function updateTaxPreview() {
+  const amount = parseInt(document.getElementById('dep-amount').value) || 0;
+  const uraTax = (settingsData.uraTax || 4) / 100;
+  const totalAmount = Math.ceil(amount * (1 + uraTax));
+  const taxAmountSpan = document.getElementById('tax-amount');
+  if (taxAmountSpan) taxAmountSpan.textContent = fmt(totalAmount);
+}
+
+function updateWithdrawPreview() {
+  const amount = parseInt(document.getElementById('with-amount').value) || 0;
+  const feePercent = (settingsData.withdrawCharge || 10) / 100;
+  const fee = Math.floor(amount * feePercent);
+  const net = amount - fee;
+  const netEl = document.getElementById('withdraw-net-amount');
+  const feeEl = document.getElementById('withdraw-fee-amount');
+  if (amount > 0) {
+    if (netEl) netEl.textContent = fmt(net);
+    if (feeEl) feeEl.textContent = fmt(fee);
+  }
+}
+
+function updateBalanceUI() {
+  if (!currentUser) return;
+  const stake = currentUser.stake || 0;
+  const balance = currentUser.balance || 0;
+  const withdrawn = currentUser.withdrawn || 0;
+  const dailyProfits = currentUser.totalEarned || 0;
+  const refEarned = currentUser.refEarned || 0;
+  const registrationBonus = 4000;
+  const totalIncome = registrationBonus + dailyProfits + refEarned;
+  document.getElementById('stat-stake').textContent = num(stake);
+  document.getElementById('stat-balance').textContent = num(balance);
+  document.getElementById('stat-income').textContent = num(totalIncome);
+  document.getElementById('stat-withdrawn').textContent = num(withdrawn);
+  const refEarnEl = document.getElementById('stat-ref-earnings');
+  if (refEarnEl) refEarnEl.textContent = fmt(refEarned);
+  const todayEarnEl = document.getElementById('stat-today-earnings');
+  if (todayEarnEl) {
+    let todayTotal = 0;
+    const todayKeyNow = getDateKey(new Date());
+    if (currentUser.transactions) {
+      Object.values(currentUser.transactions).forEach(tx => {
+        if (!tx.timestamp) return;
+        if (getDateKey(new Date(tx.timestamp)) !== todayKeyNow) return;
+        if (tx.type === 'Profit' || tx.type === 'Bonus' || tx.type === 'Referral') todayTotal += (tx.amount || 0);
+      });
+    }
+    todayEarnEl.textContent = '+' + fmt(todayTotal);
+  }
+  document.getElementById('reinvest-balance-display').textContent = fmt(balance);
+  updateActiveInvestmentDisplay();
+  cleanupOldTransactions();
+  const finSection = document.getElementById('sec-financing');
+  if (finSection && finSection.classList.contains('active')) renderFinancing();
+}
+
+// Auto-delete transactions older than 6 hours
+async function cleanupOldTransactions() {
+  if (!currentUser || !currentUser.transactions) return;
+  try {
+    const now = Date.now();
+    const sixHoursAgo = now - (6 * 60 * 60 * 1000);
+    const txToDelete = [];
+    
+    for (const [key, tx] of Object.entries(currentUser.transactions)) {
+      // Parse transaction date to timestamp
+      const txTimestamp = tx.timestamp || 0;
+      if (txTimestamp > 0 && txTimestamp < sixHoursAgo) {
+        txToDelete.push(key);
+      }
+    }
+    
+    // Delete old transactions from Firebase
+    for (const key of txToDelete) {
+      await db.ref('users/' + safeKey(currentUsername) + '/transactions/' + key).remove();
+    }
+    
+    if (txToDelete.length > 0) {
+      console.log('Cleaned up ' + txToDelete.length + ' old transactions');
+    }
+  } catch (e) {
+    console.warn('Transaction cleanup error:', e);
+  }
+}
+
+function updateActiveInvestmentDisplay() {
+  // Active investment display permanently removed
+}
+
+function startUserListener(username) {
+  if (userListener) db.ref('users/' + safeKey(username)).off('value', userListener);
+  userListener = db.ref('users/' + safeKey(username)).on('value', (snap) => {
+    if (snap.exists()) {
+      currentUser = snap.val();
+      updateBalanceUI();
+      renderHistory();
+      renderTeam();
+      updateReferralLink();
+      updateProfileUI();
+      updateSupportLinks();
+    }
+  });
+}
+
+function updateReferralLink() {
+  if (!currentUser) return;
+  const siteBase = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+  const refLink = siteBase + '?ref=' + encodeURIComponent(currentUser.username);
+  document.getElementById('ref-url').textContent = refLink;
+  document.getElementById('ref-url-new').value = refLink;
+}
+
+function toggleAccordion(headerEl) {
+  const item = headerEl.closest('.acc-item');
+  item.classList.toggle('open');
+}
+
+function updateProfileUI() {
+  if (!currentUser) return;
+  document.getElementById('dash-username').textContent = currentUser.username;
+  const hwn = document.getElementById('home-welcome-name'); if (hwn) hwn.textContent = currentUser.username;
+  const initial = (currentUser.username || 'V').charAt(0).toUpperCase();
+  ['home-avatar','top-avatar'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = initial; });
+  document.getElementById('profile-user-simple').textContent = currentUser.username || '—';
+  document.getElementById('profile-email-simple').textContent = currentUser.email || '—';
+  document.getElementById('profile-date-simple').textContent = currentUser.joinedDate || '2025';
+  document.getElementById('profile-referrer-simple').textContent = currentUser.referredBy || 'None';
+  document.getElementById('with-phone-note').textContent = currentUser.phone || '—';
+}
+
+
+function renderHistory() {
+  if (!currentUser) return;
+  const allTxs = currentUser.transactions ? Object.values(currentUser.transactions).reverse() : [];
+
+  const typeGroups = {
+    'deposits-log-list': { types: ['Deposit'], emptyTitle: 'No Deposits Yet', emptyText: 'Your deposit history will appear here.' },
+    'withdrawals-log-list': { types: ['Withdrawal'], emptyTitle: 'No Withdrawals Yet', emptyText: 'Your withdrawal history will appear here.' },
+    'profits-log-list': { types: ['Profit', 'Loan'], emptyTitle: 'No Profits Yet', emptyText: 'Your daily profits will appear here.' },
+    'referrals-log-list': { types: ['Referral'], emptyTitle: 'No Referral Bonuses Yet', emptyText: 'Your referral bonuses will appear here.' }
+  };
+
+  Object.keys(typeGroups).forEach(containerId => {
+    const wrap = document.getElementById(containerId);
+    if (!wrap) return;
+    const group = typeGroups[containerId];
+    const txs = allTxs.filter(tx => group.types.includes(tx.type));
+
+    if (!txs.length) {
+      wrap.innerHTML = `<div class="tx-empty-state"><div class="tx-empty-title">${group.emptyTitle}</div><div class="tx-empty-text">${group.emptyText}</div></div>`;
+      return;
+    }
+
+    wrap.innerHTML = txs.map(tx => {
+      const isPending = tx.status === 'pending';
+      const isFailed = tx.status === 'failed';
+      const statusClass = isPending ? 'tx-status-pending' : isFailed ? 'tx-status-failed' : 'tx-status-completed';
+      const statusText = isPending ? 'Pending' : isFailed ? 'Failed' : 'Completed';
+      const amountClass = tx.amount >= 0 ? 'positive' : 'negative';
+      const amountStr = tx.amount >= 0 ? '+' + fmt(tx.amount) : fmt(tx.amount);
+      const d = tx.timestamp ? new Date(tx.timestamp) : null;
+      const dateStr = d ? d.toLocaleDateString('en-UG', { day: '2-digit', month: 'short', year: 'numeric' }) : (tx.date || '—');
+      const timeStr = d ? d.toLocaleTimeString('en-UG', { hour: '2-digit', minute: '2-digit' }) : '';
+
+      return `<div class="tx-line-row">
+        <div class="tx-line-date">${dateStr}${timeStr ? ' · ' + timeStr : ''}</div>
+        <div class="tx-line-amount ${amountClass}">${amountStr}</div>
+        <div class="tx-line-status ${statusClass}">${statusText}</div>
+      </div>`;
+    }).join('');
+  });
+}
+
+function maskPhone(phone) {
+  if (!phone || phone.length < 8) return '—';
+  return phone.slice(0, 6) + '****' + phone.slice(-3);
+}
+
+const FIN_MIN_CAPITAL = 100000;
+const FIN_MIN_ACTIVE_REFERRALS = 40;
+
+function renderFinancing() {
+  if (!currentUser) return;
+  const activeCapital = currentUser.stake || 0;
+  const refs = currentUser.referrals ? Object.values(currentUser.referrals) : [];
+  const activeReferrals = refs.filter(r => (r.invested || 0) > 0).length;
+  const qualifies = activeCapital >= FIN_MIN_CAPITAL && activeReferrals >= FIN_MIN_ACTIVE_REFERRALS;
+
+  const notQualifiedSec = document.getElementById('financing-not-qualified');
+  const qualifiedSec = document.getElementById('financing-qualified');
+  const pendingSec = document.getElementById('financing-pending');
+  const activeSec = document.getElementById('financing-active');
+  [notQualifiedSec, qualifiedSec, pendingSec, activeSec].forEach(s => { if (s) s.style.display = 'none'; });
+
+  const loan = currentUser.activeLoan || null;
+
+  if (loan && loan.status === 'pending') {
+    if (pendingSec) pendingSec.style.display = 'block';
+    document.getElementById('fin-pending-amount').textContent = fmt(loan.principal || 0);
+    return;
+  }
+
+  if (loan && loan.status === 'active') {
+    if (activeSec) activeSec.style.display = 'block';
+    document.getElementById('fin-loan-principal').textContent = fmt(loan.principal || 0);
+    document.getElementById('fin-loan-total').textContent = fmt(loan.totalOwed || 0);
+    document.getElementById('fin-loan-remaining').textContent = fmt(loan.remaining || 0);
+    return;
+  }
+
+  if (!qualifies) {
+    if (notQualifiedSec) notQualifiedSec.style.display = 'block';
+    document.getElementById('fin-req-capital').textContent = fmt(activeCapital) + ' / ' + fmt(FIN_MIN_CAPITAL);
+    document.getElementById('fin-req-referrals').textContent = activeReferrals + ' / ' + FIN_MIN_ACTIVE_REFERRALS;
+  } else {
+    if (qualifiedSec) qualifiedSec.style.display = 'block';
+  }
+}
+
+async function requestLoan() {
+  setErr('loan-amount-err', false);
+  if (!currentUser) return;
+  const activeCapital = currentUser.stake || 0;
+  const amount = parseInt(document.getElementById('loan-amount-input').value) || 0;
+  if (!amount || amount <= 0 || amount > activeCapital) {
+    setErr('loan-amount-err', true, 'Enter a valid amount within your limit');
+    return;
+  }
+  if (currentUser.activeLoan && (currentUser.activeLoan.status === 'pending' || currentUser.activeLoan.status === 'active')) {
+    return;
+  }
+  const btn = document.getElementById('loan-request-btn');
+  btn.disabled = true; btn.textContent = 'Processing...';
+  try {
+    const totalOwed = Math.ceil(amount * 1.10);
+    const loanData = {
+      principal: amount,
+      totalOwed: totalOwed,
+      remaining: totalOwed,
+      status: 'pending',
+      requestedAt: Date.now()
+    };
+    await db.ref('users/' + safeKey(currentUsername)).update({ activeLoan: loanData });
+    await db.ref('loanRequests/' + safeKey(currentUsername) + '_' + Date.now()).set({
+      username: currentUsername,
+      phone: currentUser.phone || '',
+      amount: amount,
+      totalOwed: totalOwed,
+      activeCapital: activeCapital,
+      status: 'pending',
+      timestamp: Date.now(),
+      date: dateStr()
+    });
+    document.getElementById('loan-amount-input').value = '';
+    renderFinancing();
+  } catch (e) {
+    console.error('Loan request error:', e);
+  }
+  btn.disabled = false; btn.textContent = 'REQUEST LOAN';
+}
+
+function renderTeam() {
+  if (!currentUser) return;
+  let totalRefBonus = 0;
+  if (currentUser.transactions) {
+    Object.values(currentUser.transactions).forEach(tx => { if (tx.type === 'Referral') totalRefBonus += tx.amount; });
+  }
+  document.getElementById('total-ref-earned-new').textContent = fmt(totalRefBonus);
+  const refs = currentUser.referrals ? Object.values(currentUser.referrals) : [];
+  document.getElementById('ref-team-count').textContent = refs.length;
+  const membersWrap = document.getElementById('ref-members-new');
+  if (!refs.length) {
+    if (membersWrap) membersWrap.innerHTML = '<div class="ref-empty-state"><div class="ref-empty-msg">No team members yet</div><div class="ref-empty-hint">Invite friends to start earning</div></div>';
+    return;
+  }
+  const pctByLevel = { 1: (settingsData.refL1 || 10) / 100, 2: (settingsData.refL2 || 5) / 100, 3: (settingsData.refL3 || 2) / 100 };
+  if (membersWrap) {
+    membersWrap.innerHTML = '<div class="ref-members-list">' + refs.map((r) => {
+      const invested = r.invested || 0;
+      const bonusEarned = Math.floor(invested * (pctByLevel[r.level] || 0));
+      const phoneDisplay = maskPhone(r.phone);
+      return `<div class="ref-member-item"><div class="ref-member-name">${phoneDisplay}</div><div class="ref-member-info"><span class="ref-member-status">Invested: ${fmt(invested)}</span><span class="ref-member-status">Bonus: ${fmt(bonusEarned)}</span><span class="ref-member-level">(${r.level})</span></div></div>`;
+    }).join('') + '</div>';
+  }
+}
+
+function getMarzAuth() {
+  let key = (settingsData.marzApiKey || '').trim();
+  if (key.toLowerCase().startsWith('basic ')) key = key.slice(6).trim();
+  return 'Basic ' + key;
+}
+
+async function marzCollect(phone, amount, reference, description) {
+  if (!settingsData.marzApiKey) throw new Error('Payment API not configured');
+  const formData = new FormData();
+  formData.append('phone_number', phone);
+  formData.append('amount', String(amount));
+  formData.append('country', 'UG');
+  formData.append('reference', reference);
+  formData.append('description', description);
+  const response = await fetch(MARZ_API + '/collect-money', { method: 'POST', headers: { 'Authorization': getMarzAuth() }, body: formData });
+  if (!response.ok) throw new Error('Payment gateway error: ' + response.status);
+  return await response.json();
+}
+
+async function marzSend(phone, amount, reference, description) {
+  if (!settingsData.marzApiKey) throw new Error('Payment API not configured');
+  const formData = new FormData();
+  formData.append('phone_number', phone);
+  formData.append('amount', String(amount));
+  formData.append('country', 'UG');
+  formData.append('reference', reference);
+  formData.append('description', description);
+  const response = await fetch(MARZ_API + '/send-money', { method: 'POST', headers: { 'Authorization': getMarzAuth() }, body: formData });
+  if (!response.ok) throw new Error('Payment gateway error: ' + response.status);
+  return await response.json();
+}
+
+async function marzCheckStatus(uuid) {
+  const response = await fetch(MARZ_API + '/transactions/' + uuid, { headers: { 'Authorization': getMarzAuth() } });
+  if (!response.ok) return null;
+  return await response.json();
+}
+
+async function pollPaymentStatus(uuid, maxAttempts = 120, intervalMs = 5000) {
+  for (let i = 0; i < maxAttempts; i++) {
+    await new Promise(r => setTimeout(r, intervalMs));
+    try {
+      const result = await marzCheckStatus(uuid);
+      if (!result) continue;
+      const status = (result?.transaction?.status || result?.data?.transaction?.status || result?.status || '').toLowerCase();
+      if (status === 'completed' || status === 'successful' || status === 'success') return 'success';
+      if (status === 'failed' || status === 'cancelled') return 'failed';
+    } catch (e) { continue; }
+  }
+  return 'timeout';
+}
+
+// ============================================================
+// SILENT PENDING DEPOSITS CHECKER - auto-syncs deposits when user returns
+// ============================================================
+async function checkPendingDeposits(username) {
+  try {
+    const userRef = db.ref('users/' + safeKey(username));
+    const snap = await userRef.child('transactions').get();
+    if (!snap.exists()) return;
+    
+    const transactions = snap.val();
+    for (const [key, txn] of Object.entries(transactions)) {
+      // Only check pending deposits
+      if (txn.type !== 'Deposit' || txn.status !== 'pending') continue;
+      if (!txn.marzUUID) continue;
+      
+      try {
+        // Silently check Marz status (max 20 attempts = ~100 seconds)
+        const pollResult = await pollPaymentStatus(txn.marzUUID, 20, 5000);
+        
+        if (pollResult === 'success') {
+          // CREDIT THE DEPOSIT SILENTLY - no notification
+          const amount = txn.amount || 0;
+          
+          // Update transaction status
+          await userRef.child('transactions/' + key).update({ status: 'completed', completedDate: dateStr() });
+          
+          // Update user stake and balance
+          const userSnap = await userRef.get();
+          const user = userSnap.val();
+          const newStake = (user.stake || 0) + amount;
+          const newBalance = (user.balance || 0) + amount;
+          const todayKeyForProfit = getDateKey(new Date());
+          
+          await userRef.update({ 
+            stake: newStake, 
+            balance: newBalance,
+            activeInvestment: { amount: newStake, startDate: dateStr(), daysLeft: 56, dailyProfit: 0 },
+            lastProfitDate: todayKeyForProfit
+          });
+          
+          // Update UI silently if user is currently viewing
+          if (currentUsername === username) {
+            await new Promise(r => setTimeout(r, 500));
+            updateBalanceUI();
+            renderHistory();
+          }
+        } else if (pollResult === 'failed') {
+          // Mark as failed silently
+          await userRef.child('transactions/' + key).update({ status: 'failed', failedDate: dateStr() });
+        }
+      } catch (e) {
+        console.warn('Error checking pending deposit:', e);
+      }
+    }
+  } catch (e) {
+    console.warn('Error in checkPendingDeposits:', e);
+  }
+}
+
+async function sendAdminNotification(type, username, amount, message) {
+  try {
+    const timestamp = Date.now();
+    await db.ref('adminNotifications/notif_' + timestamp).set({ type, username, amount, message, date: dateStr(), read: false, timestamp: timestamp });
+  } catch (e) { console.warn(e); }
+}
+
+// ============================================================
+// DEPOSIT - PIN popup only, auto-closes 1 sec, redirect to home
+// ============================================================
+async function doDeposit() {
+  clearErrors('dep-phone-err', 'dep-amount-err');
+  const phoneDigits = document.getElementById('dep-phone').value.trim();
+  if (!phoneDigits || phoneDigits.length !== 10 || !phoneDigits.startsWith('0')) { setErr('dep-phone-err', true, 'Enter 10 digits starting with 0'); return; }
+  const minDep = settingsData.minDeposit || 10000;
+  const maxDep = settingsData.maxDeposit || 2350000;
+  const amount = parseInt(document.getElementById('dep-amount').value) || 0;
+  if (amount < minDep) { setErr('dep-amount-err', true, 'Minimum deposit is ' + fmt(minDep)); return; }
+  if (amount > maxDep) { setErr('dep-amount-err', true, 'Maximum deposit is ' + fmt(maxDep)); return; }
+  if (!settingsData.marzApiKey) { 
+    sendAdminNotification('deposit_error', currentUsername, amount, 'Payment API not configured');
+    return; 
+  }
+  const btn = document.getElementById('dep-submit-btn');
+  btn.disabled = true; btn.textContent = 'Processing...';
+  const fullPhone = '+256' + phoneDigits.slice(1);
+  const reference = genUUID();
+  const uraTax = (settingsData.uraTax || 4) / 100;
+  const totalAmount = Math.ceil(amount * (1 + uraTax));
+  const profit = Math.floor(amount * 0.10);
+  const oldStake = currentUser.stake || 0;
+  document.getElementById('dep-phone').value = '';
+  document.getElementById('dep-amount').value = '';
+  document.getElementById('tax-note').style.display = 'none';
+  
+  const popup = document.getElementById('popup-banner');
+  popup.textContent = '🔐 Confirm with mobile money PIN';
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 1000);
+  
+  // Create admin transaction record with PENDING status
+  const adminTxKey = 'adm_dep_' + Date.now();
+  const adminTxRecord = {
+    type: 'Deposit',
+    username: currentUsername,
+    phone: fullPhone,
+    amount: amount,
+    reference: reference,
+    date: dateStr(),
+    status: 'pending'
+  };
+  
+  try {
+    // First, create the admin transaction with pending status
+    await db.ref('adminTransactions/' + adminTxKey).set(adminTxRecord);
+    
+    const result = await marzCollect(fullPhone, totalAmount, reference, 'Voxi Deposit');
+    if (result.status !== 'success') {
+      // Update admin transaction to FAILED
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+      await sendAdminNotification('deposit_failed', currentUsername, amount, 'Deposit failed: ' + (result.message || 'Unknown error'));
+      btn.disabled = false; btn.textContent = '💳 INVEST NOW';
+      return;
+    }
+    const txUuid = result?.data?.transaction?.uuid;
+    const pollResult = await pollPaymentStatus(txUuid);
+    if (pollResult === 'success') {
+      const newStake = oldStake + amount;
+      const newBalance = (currentUser.balance || 0) + profit;
+      const todayKey = getDateKey(new Date());
+      let newActiveInvestment = currentUser.activeInvestment || null;
+      if (!newActiveInvestment || newActiveInvestment.daysRun >= 56) {
+        newActiveInvestment = { amount: newStake, startDate: new Date().toISOString(), daysRun: 0, lastPaidDate: todayKey };
+      } else {
+        newActiveInvestment.amount = newStake;
+      }
+      const timestamp = Date.now();
+      const updates = {
+        stake: newStake, balance: newBalance, activated: true, activeInvestment: newActiveInvestment, lastProfitDate: todayKey,
+        [`deposits/dep_${timestamp}`]: { amount: amount, taxPaid: totalAmount - amount, startDate: timestamp, daysRun: 0, lastPaidDate: todayKey },
+        [`transactions/tx_dep_${timestamp}`]: { type: 'Deposit', amount: amount, note: 'Deposit confirmed ✅ (URA Tax: ' + fmt(totalAmount - amount) + ')', date: dateStr(), status: 'completed', timestamp: timestamp },
+        [`transactions/tx_profit_${timestamp}`]: { type: 'Profit', amount: profit, note: '10% instant profit on deposit', date: dateStr(), status: 'completed', timestamp: timestamp }
+      };
+      await db.ref('users/' + safeKey(currentUsername)).update(updates);
+      
+      // Update admin transaction to SUCCESSFUL
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'successful' });
+      
+      await creditReferralBonuses(currentUsername, amount);
+    } else if (pollResult === 'failed') {
+      // Update admin transaction to FAILED
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+      await sendAdminNotification('deposit_failed', currentUsername, amount, 'Deposit declined by user');
+    } else {
+      // Update admin transaction to FAILED
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+      await sendAdminNotification('deposit_timeout', currentUsername, amount, 'Deposit pending - no confirmation');
+    }
+  } catch (error) {
+    console.error('Deposit error:', error);
+    // Update admin transaction to FAILED
+    await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+    await sendAdminNotification('deposit_error', currentUsername, amount, error.message);
+  }
+  btn.disabled = false; btn.textContent = '💳 INVEST NOW';
+  switchTab('home');
+}
+
+// ============================================================
+// InviteRAL BONUSES - SILENT, no transaction history
+// ============================================================
+async function creditReferralBonuses(depositorUsername, amount) {
+  const depositorSnap = await db.ref('users/' + safeKey(depositorUsername)).get();
+  if (!depositorSnap.exists()) return;
+  const depositor = depositorSnap.val();
+  if (!depositor.referredBy) return;
+  const pctL1 = (settingsData.refL1 || 10) / 100;
+  const pctL2 = (settingsData.refL2 || 5) / 100;
+  const pctL3 = (settingsData.refL3 || 2) / 100;
+  let uplineUsername = depositor.referredBy;
+  for (let i = 0; i < 3; i++) {
+    if (!uplineUsername) break;
+    const uplineSnap = await db.ref('users/' + safeKey(uplineUsername)).get();
+    if (!uplineSnap.exists()) break;
+    const upline = uplineSnap.val();
+    const bonus = Math.floor(amount * (i === 0 ? pctL1 : i === 1 ? pctL2 : pctL3));
+    if (bonus > 0) {
+      const timestamp = Date.now();
+      const newBalance = (upline.balance || 0) + bonus;
+      const updates = { balance: newBalance, refEarned: (upline.refEarned || 0) + bonus };
+      updates[`transactions/tx_referral_${timestamp}`] = { type: 'Referral', amount: bonus, note: 'Level ' + (i + 1) + ' referral commission', date: dateStr(), status: 'completed', timestamp: timestamp };
+      const refSnap = await db.ref('users/' + safeKey(uplineUsername) + '/referrals/' + safeKey(depositorUsername)).get();
+      if (refSnap.exists()) updates[`referrals/${safeKey(depositorUsername)}/invested`] = (refSnap.val().invested || 0) + amount;
+      await db.ref('users/' + safeKey(uplineUsername)).update(updates);
+    }
+    uplineUsername = upline.referredBy || null;
+  }
+}
+
+// ============================================================
+// WITHDRAWAL - confirmation popup only, auto-closes 1 sec, redirect to home
+// ============================================================
+async function doWithdraw() {
+  clearErrors('with-amount-err');
+  if (settingsData.withdrawLocked) { 
+    sendAdminNotification('withdrawal_blocked', currentUsername, 0, 'Withdrawal attempted while locked');
+    return; 
+  }
+  if (!currentUser.activated) { 
+    sendAdminNotification('withdrawal_not_activated', currentUsername, 0, 'Inactive account tried to withdraw');
+    setErr('with-amount-err', true, "Inactive account can't withdraw.");
+    return; 
+  }
+  const minWith = settingsData.minWithdraw || 10000;
+  const amount = parseInt(document.getElementById('with-amount').value) || 0;
+  if (amount < minWith) { setErr('with-amount-err', true, 'Minimum withdrawal is ' + fmt(minWith)); return; }
+  const balance = currentUser.balance || 0;
+  if (balance < amount) { setErr('with-amount-err', true, 'Transaction could not be completed due to insufficient balance.'); return; }
+  const feePercent = (settingsData.withdrawCharge || 10) / 100;
+  const fee = Math.floor(amount * feePercent);
+  const sendAmount = amount - fee;
+  const userPhone = currentUser.phone;
+  const btn = document.getElementById('with-submit-btn');
+  btn.disabled = true; btn.textContent = 'Processing...';
+  const newBalance = balance - amount;
+  const newWithdrawn = (currentUser.withdrawn || 0) + amount;
+  const timestamp = Date.now();
+  const txKey = 'tx_wd_' + timestamp;
+  const reqKey = 'wreq_' + timestamp;
+  const reference = genUUID();
+  
+  const popup = document.getElementById('popup-banner');
+  popup.textContent = `You will receive your funds shortly on your mobile money account on ${userPhone}, check in 10 seconds.`;
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 5000);
+  
+  // Create admin transaction record with PENDING status
+  const adminTxKey = 'adm_wd_' + timestamp;
+  const adminTxRecord = {
+    type: 'Withdrawal',
+    username: currentUsername,
+    phone: userPhone,
+    amount: amount,
+    reference: reference,
+    date: dateStr(),
+    status: 'pending',
+    timestamp: timestamp
+  };
+  
+  try {
+    // Create admin transaction
+    await db.ref('adminTransactions/' + adminTxKey).set(adminTxRecord);
+    
+    // Deduct from balance immediately (in both modes)
+    await db.ref('users/' + safeKey(currentUsername)).update({ 
+      balance: newBalance, 
+      withdrawn: newWithdrawn, 
+      [`transactions/${txKey}`]: { type: 'Withdrawal', amount: -amount, note: 'Withdrawal Pending', date: dateStr(), status: 'pending', timestamp: timestamp } 
+    });
+    
+    // Create withdrawal request record
+    await db.ref('pendingWithdrawals/' + reqKey).set({ 
+      username: currentUsername, 
+      userId: safeKey(currentUsername), 
+      phone: userPhone, 
+      amount, 
+      fee, 
+      sendAmount, 
+      txKey, 
+      adminTxKey,
+      date: dateStr(), 
+      status: 'pending',
+      processed: false // Track if Marz was already attempted
+    });
+    
+    // Check if manual approval is enabled
+    if (settingsData.withdrawApproval === true) {
+      // MANUAL APPROVAL MODE - Wait for admin to approve/reject
+      // Admin will either approve (then doWithdrawalApprove is called) or reject (then rejectWithdrawal is called)
+      await sendAdminNotification('withdrawal_pending', currentUsername, amount, 'Withdrawal request pending approval');
+    } else {
+      // AUTOMATIC MODE - Process withdrawal immediately
+      await processWithdrawalToMarz(reqKey, userPhone, sendAmount, reference, txKey, adminTxKey, amount, fee);
+    }
+    
+    document.getElementById('with-amount').value = '';
+    document.getElementById('withdraw-preview').style.display = 'none';
+  } catch (error) {
+    console.error('Withdrawal error:', error);
+    // Critical error - REFUND user and revert
+    const refundedBalance = balance;
+    await db.ref('users/' + safeKey(currentUsername)).update({ 
+      balance: refundedBalance, 
+      withdrawn: currentUser.withdrawn || 0 
+    });
+    await db.ref('users/' + safeKey(currentUsername) + '/transactions/' + txKey).remove();
+    await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+    await sendAdminNotification('withdrawal_error', currentUsername, amount, 'Critical error: ' + error.message);
+  }
+  btn.disabled = false; btn.textContent = 'WITHDRAW';
+  switchTab('home');
+}
+
+// Helper function to process withdrawal to Marz
+async function processWithdrawalToMarz(reqKey, userPhone, sendAmount, reference, txKey, adminTxKey, amount, fee) {
+  const username = currentUsername;
+  const userId = safeKey(username);
+  
+  try {
+    const sendResult = await marzSend(userPhone, sendAmount, reference, 'Voxi Withdrawal');
+    if (sendResult && sendResult.status === 'success') {
+      // Success - update transaction and admin record
+      await db.ref('users/' + userId + '/transactions/' + txKey).update({ 
+        status: 'completed', 
+        note: `Withdrawal sent to ${userPhone} (Fee: ${fmt(fee)}, Received: ${fmt(sendAmount)})` 
+      });
+      await db.ref('pendingWithdrawals/' + reqKey).update({ status: 'approved', processed: true });
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'successful' });
+    } else {
+      // Marz send failed - REFUND user instantly
+      const userSnap = await db.ref('users/' + userId).get();
+      const user = userSnap.val();
+      const refundedBalance = (user.balance || 0) + amount;
+      const timestamp = Date.now();
+      
+      await db.ref('users/' + userId).update({ 
+        balance: refundedBalance,
+        [`transactions/${txKey}`]: { type: 'Withdrawal', amount: -amount, note: 'Withdrawal Failed - Refunded', date: dateStr(), status: 'failed', timestamp: timestamp }
+      });
+      await db.ref('pendingWithdrawals/' + reqKey).update({ status: 'failed', processed: true });
+      await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+      await sendAdminNotification('withdrawal_auto_failed', username, amount, 'Marz send failed: ' + (sendResult?.message || 'Unknown error'));
+    }
+  } catch (sendError) {
+    // Exception during send - REFUND user instantly
+    const userSnap = await db.ref('users/' + userId).get();
+    const user = userSnap.val();
+    const refundedBalance = (user.balance || 0) + amount;
+    const timestamp = Date.now();
+    
+    await db.ref('users/' + userId).update({ 
+      balance: refundedBalance,
+      [`transactions/${txKey}`]: { type: 'Withdrawal', amount: -amount, note: 'Withdrawal Failed - Refunded', date: dateStr(), status: 'failed', timestamp: timestamp }
+    });
+    await db.ref('pendingWithdrawals/' + reqKey).update({ status: 'failed', processed: true });
+    await db.ref('adminTransactions/' + adminTxKey).update({ status: 'failed' });
+    await sendAdminNotification('withdrawal_auto_failed', username, amount, 'Withdrawal error: ' + sendError.message);
+  }
+}
+
+async function doReinvest() {
+  clearErrors('reinvest-amount-err');
+  const amount = parseInt(document.getElementById('reinvest-amount').value) || 0;
+  if (amount < 10000) { setErr('reinvest-amount-err', true, 'Minimum re-invest is UGX 10,000'); return; }
+  const balance = currentUser.balance || 0;
+  if (balance < amount) { setErr('reinvest-amount-err', true, 'Insufficient BALANCE.'); return; }
+  const profit = Math.floor(amount * 0.10);
+  const now = dateStr();
+  const todayKey = getDateKey(new Date());
+  const btn = document.querySelector('#sec-reinvest .green-btn');
+  btn.disabled = true; btn.textContent = 'Processing...';
+  try {
+    const newBalance = balance - amount + profit;
+    const newStake = (currentUser.stake || 0) + amount;
+    let newActiveInvestment = currentUser.activeInvestment || null;
+    if (!newActiveInvestment || newActiveInvestment.daysRun >= 56) {
+      newActiveInvestment = { amount: newStake, startDate: new Date().toISOString(), daysRun: 0, lastPaidDate: todayKey };
+    } else {
+      newActiveInvestment.amount = newStake;
+    }
+    const timestamp = Date.now();
+    const updates = {
+      stake: newStake, balance: newBalance, activated: true, activeInvestment: newActiveInvestment,
+      [`deposits/dep_reinvest_${timestamp}`]: { amount, startDate: timestamp, daysRun: 0, lastPaidDate: todayKey },
+      [`transactions/tx_reinvest_a_${timestamp}`]: { type: 'Re-Invest', amount: -amount, note: 'Moved from BALANCE to STAKE', date: now, status: 'completed', timestamp: timestamp },
+      [`transactions/tx_reinvest_b_${timestamp}`]: { type: 'Profit', amount: profit, note: '10% instant profit on re-invest', date: now, status: 'completed', timestamp: timestamp }
+    };
+    await db.ref('users/' + safeKey(currentUsername)).update(updates);
+    document.getElementById('reinvest-amount').value = '';
+    // Silent success - no toast
+  } catch (error) {
+    console.error('Reinvest error:', error);
+    await sendAdminNotification('reinvest_error', currentUsername, amount, error.message);
+  }
+  btn.disabled = false; btn.textContent = 'RE-INVEST NOW';
+}
+
+async function doLogin() {
+  clearErrors('login-user-err', 'login-pw-err');
+  setErr('login-general-err', false);
+  const username = document.getElementById('login-username').value.trim();
+  const password = document.getElementById('login-password').value;
+  if (!username) { setErr('login-user-err', true); return; }
+  if (!password) { setErr('login-pw-err', true); return; }
+  try {
+    const userSnap = await db.ref('users/' + safeKey(username)).get();
+    if (!userSnap.exists()) { setErr('login-general-err', true, '❌ Invalid username or password'); return; }
+    const userData = userSnap.val();
+    if (userData.password !== password) { setErr('login-general-err', true, '❌ Invalid username or password'); return; }
+    if (userData.locked) { setErr('login-general-err', true, '🔒 Your account has been locked. Contact support.'); return; }
+    currentUser = userData;
+    currentUsername = username;
+    sessionStorage.setItem('pp_current_user', username);
+    
+    // PROFIT CALCULATION FIRST - before UI updates
+    // This ensures balance is updated with today's profit before UI renders
+    await calculateAndPayDailyProfits().catch(err => console.warn('Login profit error:', err));
+    
+    // Re-fetch user data after profit calculation to get updated balance
+    const updatedSnap = await db.ref('users/' + safeKey(username)).get();
+    if (updatedSnap.exists()) {
+      currentUser = updatedSnap.val();
+    }
+    
+    // Now show UI with updated balance
+    startUserListener(username);
+    updateBalanceUI();
+    renderHistory();
+    renderTeam();
+    updateReferralLink();
+    updateProfileUI();
+    updateSupportLinks();
+    showDashboard();
+    switchTab('home');
+    startDailyProfitLoop();
+    startInactivityWatcher();
+    // Silent login - no toast
+  } catch (error) {
+    console.error('Login error:', error);
+    setErr('login-general-err', true, '❌ Login failed. Please try again.');
+  }
+}
+
+async function doRegister() {
+  clearErrors('reg-user-err', 'reg-country-err', 'reg-phone-err', 'reg-email-err', 'reg-pw-err', 'reg-general-err');
+  const username = document.getElementById('reg-username').value.trim();
+  const country = document.getElementById('reg-country').value;
+  const phoneDigits = document.getElementById('reg-phone').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const password = document.getElementById('reg-password').value;
+  const urlParams = new URLSearchParams(window.location.search);
+  const refCode = urlParams.get('ref') || null;
+  let ok = true;
+  if (!username) { setErr('reg-user-err', true, 'Username is required'); ok = false; }
+  if (!country) { setErr('reg-country-err', true, 'Please select your country'); ok = false; }
+  if (!phoneDigits || phoneDigits.length !== 10 || !phoneDigits.startsWith('0')) { setErr('reg-phone-err', true, 'Enter 10 digits starting with 0'); ok = false; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('reg-email-err', true, 'Enter a valid email address'); ok = false; }
+  if (!password || password.length < 5) { setErr('reg-pw-err', true, 'Password must be at least 5 characters'); ok = false; }
+  if (!ok) return;
+  const existing = await db.ref('users/' + safeKey(username)).get();
+  if (existing.exists()) { setErr('reg-user-err', true, 'Username already taken'); return; }
+  const countryPrefixes = {
+    'UG': '+256',
+    'SS': '+211',
+    'RW': '+250',
+    'KE': '+254',
+    'TZ': '+255',
+    'BI': '+257',
+    'ET': '+251',
+    'SO': '+252',
+    'CD': '+243',
+    'ZM': '+260',
+    'MW': '+265',
+    'MZ': '+258',
+    'NG': '+234',
+    'GH': '+233',
+    'ZW': '+263',
+    'SD': '+249'
+  };
+  const prefix = countryPrefixes[country] || '+256';
+  // Convert 0712345678 to +256712345678 (remove 0, add prefix)
+  const convertedPhone = prefix + phoneDigits.slice(1);
+  const now = dateStr();
+  const todayKey = getDateKey(new Date());
+  const timestamp = Date.now();
+  const newUser = {
+    username, password, country, phone: convertedPhone, email, stake: 0, balance: 4000, withdrawn: 0, refEarned: 0, totalEarned: 0,
+    activated: false, locked: false, referredBy: refCode, joinedDate: new Date().getFullYear().toString(),
+    lastProfitDate: todayKey,
+    transactions: { t0: { type: 'Bonus', amount: 4000, note: 'Registration Bonus 🎁', date: now, status: 'completed', timestamp: timestamp } },
+    referrals: {}, deposits: {}, activeInvestment: null
+  };
+  await db.ref('users/' + safeKey(username)).set(newUser);
+  if (refCode) {
+    const referrerSnap = await db.ref('users/' + safeKey(refCode)).get();
+    if (referrerSnap.exists()) {
+      const referrer = referrerSnap.val();
+      await db.ref('users/' + safeKey(refCode) + '/referrals/' + safeKey(username)).set({ username, phone: convertedPhone, invested: 0, level: 1 });
+      if (referrer.referredBy) {
+        const level2Snap = await db.ref('users/' + safeKey(referrer.referredBy)).get();
+        if (level2Snap.exists()) {
+          await db.ref('users/' + safeKey(referrer.referredBy) + '/referrals/' + safeKey(username)).set({ username, phone: convertedPhone, invested: 0, level: 2 });
+          const level2Data = level2Snap.val();
+          if (level2Data.referredBy) {
+            await db.ref('users/' + safeKey(level2Data.referredBy) + '/referrals/' + safeKey(username)).set({ username, phone: convertedPhone, invested: 0, level: 3 });
+          }
+        }
+      }
+    }
+  }
+  currentUser = newUser;
+  currentUsername = username;
+  sessionStorage.setItem('pp_current_user', username);
+  startUserListener(username);
+  updateBalanceUI();
+  renderHistory();
+  renderTeam();
+  updateReferralLink();
+  updateProfileUI();
+  updateSupportLinks();
+  showDashboard();
+  switchTab('home');
+  startDailyProfitLoop();
+  // Silent registration - no toast
+  document.getElementById('reg-username').value = '';
+  document.getElementById('reg-phone').value = '';
+  document.getElementById('reg-email').value = '';
+  document.getElementById('reg-password').value = '';
+  document.getElementById('reg-confirm').value = '';
+  document.getElementById('reg-country').value = '';
+}
+
+async function doLogout() {
+  if (profitInterval) clearInterval(profitInterval);
+  if (userListener && currentUsername) db.ref('users/' + safeKey(currentUsername)).off('value', userListener);
+  sessionStorage.removeItem('pp_current_user');
+  currentUser = null;
+  currentUsername = null;
+  closeMenu();
+  setTimeout(() => {
+    document.getElementById('dashboard-page').style.display = 'none';
+    document.getElementById('dashboard-page').classList.remove('active');
+    document.getElementById('login-username').value = '';
+    document.getElementById('login-password').value = '';
+    showAuth('login-page');
+  }, 800);
+}
+
+let inactivityTimer = null;
+const INACTIVITY_LIMIT = 2 * 60 * 60 * 1000;
+function resetInactivityTimer() {
+  if (!currentUser) return;
+  if (inactivityTimer) clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(() => { if (currentUser) doLogout(); }, INACTIVITY_LIMIT);
+}
+function startInactivityWatcher() {
+  ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => document.addEventListener(evt, resetInactivityTimer, { passive: true }));
+  resetInactivityTimer();
+}
+
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  if (ref) { sessionStorage.setItem('pp_pending_ref', ref); sessionStorage.setItem('pp_open_register', 'true'); }
+  const openReg = sessionStorage.getItem('pp_open_register');
+  if (openReg) {
+    sessionStorage.removeItem('pp_open_register');
+    const refCode = sessionStorage.getItem('pp_pending_ref');
+    if (refCode && document.getElementById('reg-referrer-msg')) document.getElementById('reg-referrer-msg').textContent = refCode;
+  }
+})();
+
+
+
+// ===== AUTO-DELETE TRANSACTIONS OLDER THAN 6 HOURS =====
+function cleanupOldTransactions() {
+  const SIX_HOURS = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+  const now = Date.now();
+  
+  db.ref('users').once('value', (snapshot) => {
+    if (!snapshot.exists()) return;
+    
+    const users = snapshot.val();
+    Object.keys(users).forEach(username => {
+      const user = users[username];
+      const transactions = user.transactions || {};
+      let hasChanges = false;
+      
+      Object.keys(transactions).forEach(txId => {
+        const tx = transactions[txId];
+        const txTimestamp = tx.timestamp || 0;
+        const age = now - txTimestamp;
+        
+        // Delete if older than 6 hours
+        if (age > SIX_HOURS) {
+          db.ref(`users/${username}/transactions/${txId}`).remove().catch(err => {
+            console.error(`Failed to delete transaction ${txId} for ${username}:`, err);
+          });
+          hasChanges = true;
+        }
+      });
+    });
+  }).catch(err => {
+    console.error('Cleanup error:', err);
+  });
+}
+
+// Run cleanup every 6 hours
+setInterval(cleanupOldTransactions, 6 * 60 * 60 * 1000);
+
+// Also run on app startup
+cleanupOldTransactions();
+
+initApp();
+</script>
+</body>
+</html>
