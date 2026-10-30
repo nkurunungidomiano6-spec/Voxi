@@ -396,15 +396,12 @@ input[type="password"]{padding-right:46px;}
 
 /* ===== Voxi green home dashboard ===== */
 :root{--bg:#f3f4f7;--vx-g1:#15803d;--vx-g2:#22c55e;--vx-g3:#16a34a;--vx-dark:#0f1a14;}
-[data-theme="dark"]{--bg:#0b1210;--surface:#141d19;--surface2:#1b2621;--surface3:#22302a;--border:#2a3a33;--text:#e8f1ec;--muted:#8fa399;}
 .ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 .topbar{background:var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.12);padding:14px 16px;}
 .menu-btn{background:none;border:none;width:34px;}
 .menu-btn span{background:var(--text);}
 .vx-brand{font-size:20px;font-weight:800;color:var(--vx-g3);letter-spacing:.5px;}
 .topbar-right{gap:10px;}
-.vx-icon-btn{width:34px;height:34px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;}
-.vx-icon-btn .ic{width:17px;height:17px;}
 .vx-avatar{width:68px;height:68px;border-radius:50%;background:#fff;color:var(--vx-g1);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex-shrink:0;}
 .vx-avatar-sm{width:32px;height:32px;font-size:14px;background:var(--vx-g3);color:#fff;cursor:pointer;}
 .vx-first{padding-top:20px;}
@@ -546,8 +543,6 @@ input[type="password"]{padding-right:46px;}
       <div class="brand"><div class="brand-name vx-brand">Voxi</div></div>
     </div>
     <div class="topbar-right">
-      <div class="vx-icon-btn" onclick="toggleFullscreen()" title="Fullscreen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></div>
-      <div class="vx-icon-btn" onclick="toggleTheme()" title="Dark mode"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
       <div class="vx-avatar vx-avatar-sm" id="top-avatar" onclick="switchTab('profile')">V</div>
       <div class="username-top" id="dash-username" style="display:none;">—</div>
     </div>
@@ -1317,21 +1312,6 @@ function copyRef() {
     });
   }
 }
-
-function toggleFullscreen() {
-  try {
-    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-    else document.exitFullscreen();
-  } catch (e) {}
-}
-function toggleTheme() {
-  const dark = document.documentElement.getAttribute('data-theme') !== 'dark';
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  try { localStorage.setItem('voxi-theme', dark ? 'dark' : 'light'); } catch (e) {}
-}
-(function () {
-  try { if (localStorage.getItem('voxi-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
-})();
 
 function toggleSupportMenu() {
   const dropdown = document.getElementById('zx-support-dropdown');
