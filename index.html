@@ -419,6 +419,9 @@ input[type="password"]{padding-right:46px;}
 .vx-tile{background:linear-gradient(135deg,var(--vx-g2),var(--vx-g1));color:#fff;border-radius:8px;height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-size:10px;font-weight:700;}
 .vx-tile:active{transform:scale(.97);}
 .vx-tile .ic{width:18px;height:18px;}
+.vx-greet{background:var(--surface);border-left:4px solid var(--vx-g3);border-radius:8px;padding:16px 16px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+.vx-greet-title{font-size:16px;font-weight:800;color:var(--vx-g1);margin-bottom:6px;word-break:break-word;}
+.vx-greet-msg{font-size:13px;line-height:1.6;color:var(--muted);}
 .vx-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .vx-link{background:var(--surface);border-radius:8px;padding:18px 12px;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
 .vx-link-ic{color:var(--vx-g3);width:18px;height:18px;}
@@ -587,6 +590,13 @@ input[type="password"]{padding-right:46px;}
         <a class="vx-link" id="home-telegram" href="#" target="_blank" rel="noopener">
           <svg class="ic vx-link-ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><div class="vx-link-title">TELEGRAM GROUP</div><div class="vx-link-sub">Join our official Telegram community</div>
         </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-greet">
+        <div class="vx-greet-title" id="home-greet-title">Hi, good day</div>
+        <div class="vx-greet-msg" id="home-greet-msg">Welcome to Voxi, your path to prosperity. Invest today and watch your wealth grow every day.</div>
       </div>
     </div>
 
@@ -997,6 +1007,17 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 const MARZ_API = 'https://polished-truth-f9c5.vallazvallax.workers.dev';
+
+function updateGreeting() {
+  const el = document.getElementById('home-greet-title');
+  if (!el) return;
+  const h = new Date().getHours();
+  const part = h >= 5 && h < 12 ? 'morning' : (h >= 12 && h < 17 ? 'afternoon' : 'evening');
+  let name = '';
+  try { name = (currentUser && currentUser.username) || ''; } catch (e) {}
+  el.textContent = 'Hi, good ' + part + (name ? ', ' + name : '');
+}
+setInterval(updateGreeting, 60000);
 
 function num(n) { return Number(n || 0).toLocaleString(); }
 function fmt(n) { return 'UGX ' + Number(n || 0).toLocaleString(); }
@@ -1606,6 +1627,7 @@ function updateProfileUI() {
   if (!currentUser) return;
   document.getElementById('dash-username').textContent = currentUser.username;
   const hwn = document.getElementById('home-welcome-name'); if (hwn) hwn.textContent = currentUser.username;
+  updateGreeting();
   const initial = (currentUser.username || 'V').charAt(0).toUpperCase();
   ['home-avatar','top-avatar'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = initial; });
   document.getElementById('profile-user-simple').textContent = currentUser.username || '—';
