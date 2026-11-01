@@ -400,6 +400,8 @@ input[type="password"]{padding-right:46px;}
 .topbar{background:var(--surface);box-shadow:0 2px 6px rgba(0,0,0,.12);padding:14px 16px;}
 .menu-btn{background:none;border:none;width:34px;}
 .menu-btn span{background:var(--text);}
+.vx-brand-wrap{display:flex;align-items:center;gap:8px;}
+.vx-logo{height:34px;width:auto;display:block;}
 .vx-brand{font-size:20px;font-weight:800;color:var(--vx-g3);letter-spacing:.5px;}
 .topbar-right{gap:10px;}
 .vx-avatar{width:68px;height:68px;border-radius:50%;background:#fff;color:var(--vx-g1);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex-shrink:0;}
@@ -543,7 +545,7 @@ input[type="password"]{padding-right:46px;}
   <div class="topbar">
     <div class="topbar-left">
       <div class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></div>
-      <div class="brand"><div class="brand-name vx-brand">Voxi</div></div>
+      <div class="brand vx-brand-wrap"><img class="vx-logo" src="logo-icon.png" alt=""><div class="brand-name vx-brand">Voxi</div></div>
     </div>
     <div class="topbar-right">
       <div class="vx-avatar vx-avatar-sm" id="top-avatar" onclick="switchTab('profile')">V</div>
@@ -1301,7 +1303,7 @@ function clearErrors(...ids) { ids.forEach(id => setErr(id, false)); }
 function toggleEye(inputId, btn, textMode) {
   const inp = document.getElementById(inputId);
   if (inp.type === 'password') { inp.type = 'text'; btn.textContent = textMode ? 'Hide' : '🙈'; }
-  else { inp.type = 'password'; btn.textContent = textMode ? 'Show' : '👁️'; }
+  else { inp.type = 'password'; btn.textContent = textMode ? 'Show' : '??️'; }
 }
 
 function updateRegPrefix() {
