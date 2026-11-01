@@ -1204,6 +1204,18 @@ async function forceRefreshUserData() {
   } catch (e) { console.warn('Force refresh error:', e); }
 }
 
+const SESSION_KEY = 'pp_current_user';
+function getSavedUser() {
+  try { return localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY); } catch (e) { return null; }
+}
+function saveUser(u) {
+  try { localStorage.setItem(SESSION_KEY, u); } catch (e) { try { sessionStorage.setItem(SESSION_KEY, u); } catch (e2) {} }
+}
+function clearSavedUser() {
+  try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+  try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+}
+
 function showEntryAuth() {
   let ref = null;
   try { ref = new URLSearchParams(window.location.search).get('ref'); } catch (e) {}
@@ -1214,7 +1226,7 @@ async function initApp() {
   initTheme();
   startSettingsListener();
   
-  const savedUser = sessionStorage.getItem('pp_current_user');
+  const savedUser = getSavedUser();
   if (savedUser) {
     try {
       const userSnap = await db.ref('users/' + safeKey(savedUser)).get();
@@ -1248,12 +1260,11 @@ async function initApp() {
         startDailyProfitLoop();
         startInactivityWatcher();
       } else {
-        sessionStorage.removeItem('pp_current_user');
+        clearSavedUser();
         showEntryAuth();
       }
     } catch (err) {
       console.warn('Login check error:', err);
-      sessionStorage.removeItem('pp_current_user');
       showEntryAuth();
     }
   } else {
@@ -1303,7 +1314,7 @@ function clearErrors(...ids) { ids.forEach(id => setErr(id, false)); }
 function toggleEye(inputId, btn, textMode) {
   const inp = document.getElementById(inputId);
   if (inp.type === 'password') { inp.type = 'text'; btn.textContent = textMode ? 'Hide' : '🙈'; }
-  else { inp.type = 'password'; btn.textContent = textMode ? 'Show' : '??️'; }
+  else { inp.type = 'password'; btn.textContent = textMode ? 'Show' : '👁️'; }
 }
 
 function updateRegPrefix() {
@@ -2254,7 +2265,7 @@ async function doLogin() {
     if (userData.locked) { setErr('login-general-err', true, '🔒 Your account has been locked. Contact support.'); return; }
     currentUser = userData;
     currentUsername = username;
-    sessionStorage.setItem('pp_current_user', username);
+    saveUser(username);
     
     // PROFIT CALCULATION FIRST - before UI updates
     // This ensures balance is updated with today's profit before UI renders
@@ -2354,7 +2365,7 @@ async function doRegister() {
   }
   currentUser = newUser;
   currentUsername = username;
-  sessionStorage.setItem('pp_current_user', username);
+  saveUser(username);
   startUserListener(username);
   updateBalanceUI();
   renderHistory();
@@ -2377,7 +2388,7 @@ async function doRegister() {
 async function doLogout() {
   if (profitInterval) clearInterval(profitInterval);
   if (userListener && currentUsername) db.ref('users/' + safeKey(currentUsername)).off('value', userListener);
-  sessionStorage.removeItem('pp_current_user');
+  clearSavedUser();
   currentUser = null;
   currentUsername = null;
   closeMenu();
@@ -2393,11 +2404,13 @@ async function doLogout() {
 let inactivityTimer = null;
 const INACTIVITY_LIMIT = 2 * 60 * 60 * 1000;
 function resetInactivityTimer() {
+  return; // users stay logged in until they log out themselves
   if (!currentUser) return;
   if (inactivityTimer) clearTimeout(inactivityTimer);
   inactivityTimer = setTimeout(() => { if (currentUser) doLogout(); }, INACTIVITY_LIMIT);
 }
 function startInactivityWatcher() {
+  return; // auto-logout disabled
   ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => document.addEventListener(evt, resetInactivityTimer, { passive: true }));
   resetInactivityTimer();
 }
