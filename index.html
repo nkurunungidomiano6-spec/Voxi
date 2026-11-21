@@ -440,6 +440,71 @@ input[type="password"]{padding-right:46px;}
 .zx-support-wrap{bottom:96px;}
 .zx-support-btn{width:56px;height:56px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;background:var(--vx-g3);box-shadow:0 4px 16px rgba(22,163,74,.45);}
 .zx-support-btn .ic{width:24px;height:24px;}
+
+/* ===== Voxi dashboard v2 (matches reference layout) ===== */
+:root{--bg:#fff;--vx-indigo:#4f52b6;}
+.topbar{padding:0 10px 0 0;min-height:56px;gap:6px;}
+.topbar-left{display:flex;align-items:center;gap:6px;}
+.vx-brand-wrap{padding:0 12px;min-height:56px;background:#f5f6fb;border-right:1px solid var(--border);}
+.vx-logo{height:30px;}
+.vx-brand{font-size:16px;}
+.menu-btn{width:30px;}
+.topbar-right{gap:6px;}
+.vx-tb{width:36px;height:36px;border-radius:9px;background:#e9e9f4;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;flex-shrink:0;}
+.vx-tb .ic{width:18px;height:18px;}
+.vx-avatar-sm{width:34px;height:34px;position:relative;margin-left:4px;}
+.vx-avatar-sm::after{content:"";position:absolute;right:-1px;bottom:-1px;width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #fff;}
+.vx-greet-top{box-shadow:0 1px 6px rgba(0,0,0,.07);}
+.vx-balance{background:linear-gradient(180deg,#6b70c9,#4a4db1);border-radius:8px;padding:14px 14px 12px;color:#fff;}
+.vx-bal-label{font-size:14px;font-weight:800;letter-spacing:.2px;}
+.vx-bal-amount{font-size:30px;font-weight:700;color:#1d2142;margin:8px 0 10px;}
+.vx-bal-row{display:flex;justify-content:space-between;align-items:center;font-size:16px;color:#e0e2f7;}
+.vx-bal-row b{color:#fff;font-weight:700;}
+.vx-grid4{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+.vx-box{border-radius:6px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;}
+.vx-box b{font-size:18px;font-weight:700;color:#1d2142;display:block;}
+.vx-box span{font-size:16px;font-weight:500;color:#fff;}
+.vx-orange{background:#ffb94d;} .vx-orange span{font-weight:700;}
+.vx-green{background:#2bb27c;}
+.vx-red{background:#ff6460;}
+.vx-indigo{background:#4f52b6;}
+.vx-split{flex-direction:row;}
+.vx-split>div{flex:1;display:flex;flex-direction:column;align-items:center;}
+.vx-split i{width:1px;height:38px;background:rgba(255,255,255,.4);}
+.vx-split b{color:#1d2142;font-size:16px;}
+.vx-card{background:#fff;border-radius:8px;padding:14px 14px 16px;box-shadow:0 1px 8px rgba(30,35,80,.1);}
+.vx-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;}
+.vx-card-title{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700;color:#1d2142;}
+.vx-bolt{color:#4f52b6;display:flex;}
+.vx-card-title2{font-size:17px;font-weight:700;color:#1d2142;}
+.vx-card-sub{font-size:12px;color:#6b7280;margin-top:2px;}
+.vx-pill{font-size:11px;font-weight:800;letter-spacing:.3px;padding:7px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.vx-pill-gray{background:#e9e9f0;color:#4b5563;}
+.vx-pill-green{background:#e3f5ee;color:#1f9d6a;}
+.vx-pill-ic{width:12px;height:12px;stroke-width:3;}
+.vx-qa{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 6px;}
+.vx-qa-item{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:#1d2142;text-align:center;}
+.vx-qa-ic{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.vx-qa-ic .ic{width:22px;height:22px;}
+.vx-community-id{display:flex;align-items:center;gap:12px;min-width:0;}
+.vx-comm-ic{width:48px;height:48px;flex-shrink:0;}
+.vx-join{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.vx-join-btn{color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:14px 4px;border-radius:8px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.18);}
+.vx-j-green{background:#2bb27c;}
+.vx-j-indigo{background:#4f52b6;}
+.vx-ticker{min-height:110px;overflow:hidden;}
+.bottom-nav{background:#fff;border-top:1px solid #e5e7eb;grid-template-columns:repeat(5,1fr);gap:0;padding:8px 4px calc(8px + env(safe-area-inset-bottom));}
+.nav-item{background:none;box-shadow:none;border-radius:0;color:#8a8f9c;padding:4px 2px;gap:5px;}
+.nav-item.active{background:none;box-shadow:none;color:#4f52b6;}
+.nav-label{color:inherit;font-size:11px;font-weight:600;}
+.nav-item.active .nav-label{color:#4f52b6;}
+.nav-item .ic{width:22px;height:22px;}
+.app-footer{display:none;}
+.dashboard-page{padding-bottom:90px;}
+.zx-support-wrap{bottom:84px;right:14px;}
+.zx-support-btn{width:54px;height:54px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);box-shadow:0 6px 16px rgba(37,99,235,.45);position:relative;}
+.zx-support-btn .ic{width:24px;height:24px;}
+.vx-fab-dot{position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;background:#22c55e;border:2px solid #fff;}
 </style>
 </head>
 <body>
@@ -544,10 +609,14 @@ input[type="password"]{padding-right:46px;}
 <div class="dashboard-page" id="dashboard-page">
   <div class="topbar">
     <div class="topbar-left">
-      <div class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></div>
       <div class="brand vx-brand-wrap"><img class="vx-logo" src="logo-icon.png" alt=""><div class="brand-name vx-brand">Voxi</div></div>
+      <div class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></div>
     </div>
     <div class="topbar-right">
+      <div class="vx-tb" onclick="toggleSupportMenu()" style="color:#4f52b6;" title="Support"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><circle cx="9" cy="11.5" r=".6"/><circle cx="12.5" cy="11.5" r=".6"/><circle cx="16" cy="11.5" r=".6"/></svg></div>
+      <a class="vx-tb" id="top-wa" href="#" target="_blank" rel="noopener" style="color:#25d366;" title="WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><circle cx="9" cy="11.5" r=".6"/><circle cx="12.5" cy="11.5" r=".6"/><circle cx="16" cy="11.5" r=".6"/></svg></a>
+      <a class="vx-tb" id="top-tg" href="#" target="_blank" rel="noopener" style="color:#2f9be8;" title="Telegram"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+      <div class="vx-tb" onclick="switchTab('profits-log')" style="color:#111;" title="Earnings"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
       <div class="vx-avatar vx-avatar-sm" id="top-avatar" onclick="switchTab('profile')">V</div>
       <div class="username-top" id="dash-username" style="display:none;">—</div>
     </div>
@@ -556,49 +625,84 @@ input[type="password"]{padding-right:46px;}
   <!-- HOME / Main -->
   <div class="dash-section active" id="sec-home">
     <div class="section vx-first">
-      <div class="vx-welcome">
-        <div class="vx-avatar" id="home-avatar">V</div>
-        <div class="vx-welcome-body">
-          <div class="vx-welcome-text">Welcome back, <span id="home-welcome-name">—</span></div>
-          <button class="vx-copy-btn" onclick="copyRef()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy Referral Link</span></button>
+      <div class="vx-greet vx-greet-top">
+        <div class="vx-greet-title" id="home-greet-title">Hi, good day</div>
+        <div class="vx-greet-msg" id="home-greet-msg">Welcome to Voxi, your path to prosperity. Invest today and watch your wealth grow every day.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-balance">
+        <div class="vx-bal-label">ACCOUNT BALANCE</div>
+        <div class="vx-bal-amount" id="stat-balance">0</div>
+        <div class="vx-bal-row"><span>Recent Earning</span><b id="stat-today-earnings">0</b></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="vx-grid4">
+        <div class="vx-box vx-orange"><b id="stat-stake">0</b><span>Investment</span></div>
+        <div class="vx-box vx-green"><b id="stat-income">0</b><span>Total Earnings</span></div>
+        <div class="vx-box vx-red"><b id="stat-withdrawn">0</b><span>Withdrawal</span></div>
+        <div class="vx-box vx-indigo vx-split">
+          <div><b id="home-ref-count">0</b><span>Referrals</span></div>
+          <i></i>
+          <div><b id="stat-ref-earnings">0</b><span>Rewards</span></div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="vx-stats">
-        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><div class="vx-stat-val" id="stat-balance">0</div><div class="vx-stat-lbl">Balance</div></div>
-        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><div class="vx-stat-val" id="stat-income">0</div><div class="vx-stat-lbl">Earnings</div></div>
-        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><div class="vx-stat-val" id="stat-stake">0</div><div class="vx-stat-lbl">Invested</div></div>
-        <div class="vx-stat"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg><div class="vx-stat-val" id="stat-withdrawn">0</div><div class="vx-stat-lbl">Withdraws</div></div>
+      <div class="vx-card">
+        <div class="vx-card-head">
+          <div class="vx-card-title"><span class="vx-bolt"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>Quick Actions</div>
+          <span class="vx-pill vx-pill-gray">SHORTCUTS</span>
+        </div>
+        <div class="vx-qa">
+          <div class="vx-qa-item" onclick="switchTab('deposit')"><div class="vx-qa-ic" style="background:#ececfa;color:#4f52b6;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M16 15h2"/><path d="M6 6V4h10"/></svg></div><span>Deposit</span></div>
+          <div class="vx-qa-item" onclick="switchTab('withdraw')"><div class="vx-qa-ic" style="background:#ffeceb;color:#ef5350;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-7M12 21v-7M15 21v-7"/></svg></div><span>Withdraw</span></div>
+          <div class="vx-qa-item" onclick="switchTab('reinvest')"><div class="vx-qa-ic" style="background:#eaf4fd;color:#2f9be8;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><span>Reinvest</span></div>
+          <div class="vx-qa-item" onclick="switchTab('team')"><div class="vx-qa-ic" style="background:#fff6e5;color:#f5a623;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span>Team Report</span></div>
+          <div class="vx-qa-item" onclick="switchTab('profits-log')"><div class="vx-qa-ic" style="background:#e6f6ef;color:#2bb27c;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="17" x2="8" y2="12"/><line x1="12" y1="17" x2="12" y2="8"/><line x1="16" y1="17" x2="16" y2="14"/></svg></div><span>Earnings</span></div>
+          <div class="vx-qa-item" onclick="switchTab('deposits-log')"><div class="vx-qa-ic" style="background:#e6f6ef;color:#2bb27c;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span>Records</span></div>
+        </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="vx-actions">
-        <div class="vx-tile" onclick="switchTab('deposit')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Invest</span></div>
-        <div class="vx-tile" onclick="switchTab('withdraw')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg><span>Withdraw</span></div>
-        <div class="vx-tile" onclick="switchTab('reinvest')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg><span>Re-invest</span></div>
-        <div class="vx-tile" onclick="switchTab('deposits-log')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Records</span></div>
-        <div class="vx-tile" onclick="switchTab('team')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Referrals</span></div>
+      <div class="vx-card">
+        <div class="vx-card-head">
+          <div class="vx-community-id">
+            <div class="vx-qa-ic vx-comm-ic" style="background:#ececfa;color:#4f52b6;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="vx-card-title2">Join Our Community</div><div class="vx-card-sub">Stay connected and get latest updates</div></div>
+          </div>
+          <span class="vx-pill vx-pill-green"><svg class="ic vx-pill-ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>JOIN US</span>
+        </div>
+        <div class="vx-join">
+          <a class="vx-join-btn vx-j-green" id="home-wa-group" href="#" target="_blank" rel="noopener">WhatsApp 1</a>
+          <a class="vx-join-btn vx-j-green" id="home-wa2" href="#" target="_blank" rel="noopener">WhatsApp 2</a>
+          <a class="vx-join-btn vx-j-indigo" id="home-telegram" href="#" target="_blank" rel="noopener">Telegram</a>
+        </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="vx-links">
-        <a class="vx-link" id="home-wa-group" href="#" target="_blank" rel="noopener">
-          <svg class="ic vx-link-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><div class="vx-link-title">WHATSAPP GROUP 1</div><div class="vx-link-sub">Join our main WhatsApp group</div>
-        </a>
-        <a class="vx-link" id="home-telegram" href="#" target="_blank" rel="noopener">
-          <svg class="ic vx-link-ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><div class="vx-link-title">TELEGRAM GROUP</div><div class="vx-link-sub">Join our official Telegram community</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="vx-greet">
-        <div class="vx-greet-title" id="home-greet-title">Hi, good day</div>
-        <div class="vx-greet-msg" id="home-greet-msg">Welcome to Voxi, your path to prosperity. Invest today and watch your wealth grow every day.</div>
+      <div class="vx-card">
+        <div class="vx-card-head">
+          <div class="vx-community-id">
+            <div class="vx-qa-ic vx-comm-ic" style="background:#e6f6ef;color:#2bb27c;"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div><div class="vx-card-title2">Forex Market</div><div class="vx-card-sub">Fundamental Market Data</div></div>
+          </div>
+          <span class="vx-pill vx-pill-green">&bull; LIVE</span>
+        </div>
+        <div class="vx-ticker">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {"symbols":[{"proName":"FX_IDC:EURUSD","title":"EUR/USD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"},{"proName":"BITSTAMP:ETHUSD","title":"ETH/USD"},{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FX_IDC:GBPUSD","title":"GBP/USD"},{"proName":"OANDA:XAUUSD","title":"Gold"}],"showSymbolLogo":false,"colorTheme":"light","isTransparent":true,"displayMode":"adaptive","locale":"en"}
+        </script>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -612,7 +716,7 @@ input[type="password"]{padding-right:46px;}
       <a href="#" id="zx-wa-group-link" class="zx-support-item" target="_blank">WhatsApp Community</a>
       <a href="#" id="zx-wa-support-link" class="zx-support-item" target="_blank">WhatsApp Support Chat</a>
     </div>
-    <button class="zx-support-btn" onclick="toggleSupportMenu()" aria-label="Support"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></button>
+    <button class="zx-support-btn" onclick="toggleSupportMenu()" aria-label="Support"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><circle cx="9" cy="11.5" r=".6"/><circle cx="12.5" cy="11.5" r=".6"/><circle cx="16" cy="11.5" r=".6"/></svg><i class="vx-fab-dot"></i></button>
   </div>
 
   <!-- History - New Card Design -->
@@ -875,9 +979,10 @@ input[type="password"]{padding-right:46px;}
 
   <nav class="bottom-nav">
     <div class="nav-item active" onclick="switchTab('home')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="nav-label">Home</span></div>
-    <div class="nav-item" onclick="switchTab('plan')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><span class="nav-label">Packages</span></div>
+    <div class="nav-item" onclick="switchTab('plan')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg><span class="nav-label">Packages</span></div>
+    <div class="nav-item" onclick="switchTab('team')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">Refer &amp; Earn</span></div>
     <div class="nav-item" onclick="switchTab('profile')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="nav-label">Profile</span></div>
-    <div class="nav-item" onclick="switchTab('team')"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nav-label">Invite</span></div>
+    <div class="nav-item" onclick="doLogout()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span class="nav-label">Logout</span></div>
   </nav>
 
   <footer class="app-footer">
@@ -1367,11 +1472,14 @@ function updateSupportLinks() {
   const homeWa = document.getElementById('home-wa-group');
   if (homeTg) homeTg.href = settingsData.telegramLink || '#';
   if (homeWa) homeWa.href = settingsData.waGroup || '#';
+  const topWa = document.getElementById('top-wa'); if (topWa) topWa.href = settingsData.waGroup || '#';
+  const topTg = document.getElementById('top-tg'); if (topTg) topTg.href = settingsData.telegramLink || '#';
   if (waGroupLink) waGroupLink.href = settingsData.waGroup || '#';
   if (waSupportLink && currentUser) {
     const phone = settingsData.waNumber || '700000000';
     const message = `Hey, I'm ${currentUser.username}, I need assistance with my Voxi investment account. Please help me!`;
     waSupportLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const homeWa2 = document.getElementById('home-wa2'); if (homeWa2) homeWa2.href = waSupportLink.href;
   }
 }
 
@@ -1431,7 +1539,7 @@ function closePrivacyModal(event) {
 }
 
 const tabMap = { home: 'sec-home', 'deposits-log': 'sec-deposits-log', 'withdrawals-log': 'sec-withdrawals-log', 'profits-log': 'sec-profits-log', 'referrals-log': 'sec-referrals-log', team: 'sec-team', plan: 'sec-plan', profile: 'sec-profile', deposit: 'sec-deposit', withdraw: 'sec-withdraw', reinvest: 'sec-reinvest', financing: 'sec-financing' };
-const navOrder = ['home', 'plan', 'profile', 'team'];
+const navOrder = ['home', 'plan', 'team', 'profile'];
 
 function switchTab(tab) {
   if (tab === 'withdraw' && settingsData.withdrawLocked) {
@@ -1560,7 +1668,9 @@ function updateBalanceUI() {
   document.getElementById('stat-income').textContent = num(totalIncome);
   document.getElementById('stat-withdrawn').textContent = num(withdrawn);
   const refEarnEl = document.getElementById('stat-ref-earnings');
-  if (refEarnEl) refEarnEl.textContent = fmt(refEarned);
+  if (refEarnEl) refEarnEl.textContent = num(refEarned);
+  const hrc = document.getElementById('home-ref-count');
+  if (hrc) hrc.textContent = currentUser.referrals ? Object.keys(currentUser.referrals).length : 0;
   const todayEarnEl = document.getElementById('stat-today-earnings');
   if (todayEarnEl) {
     let todayTotal = 0;
@@ -1572,7 +1682,7 @@ function updateBalanceUI() {
         if (tx.type === 'Profit' || tx.type === 'Bonus' || tx.type === 'Referral') todayTotal += (tx.amount || 0);
       });
     }
-    todayEarnEl.textContent = '+' + fmt(todayTotal);
+    todayEarnEl.textContent = num(todayTotal);
   }
   document.getElementById('reinvest-balance-display').textContent = fmt(balance);
   updateActiveInvestmentDisplay();
