@@ -578,6 +578,14 @@ input[type="password"]{padding-right:46px;}
 .vx-qa-item{gap:3px;font-size:10px;}
 .vx-ticker{min-height:40px;max-height:48px;}
 .vx-greet-top .vx-greet-msg{font-size:10.5px;line-height:1.35;}
+.vx-ticker{height:52px;min-height:52px;max-height:none;overflow:hidden;}
+.vx-ticker .tradingview-widget-container{width:100%;}
+.vx-greet-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px;}
+.vx-greet-head .vx-greet-title{margin-bottom:0;min-width:0;}
+.vx-copy-mini{background:#0f1a14;color:#fff;border:none;border-radius:6px;padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.vx-copy-mini .ic{width:13px;height:13px;}
+.vx-copy-mini.copied{background:#2bb27c;}
+.vx-copy-mini:active{transform:scale(.97);}
 </style>
 </head>
 <body>
@@ -699,7 +707,10 @@ input[type="password"]{padding-right:46px;}
   <div class="dash-section active" id="sec-home">
     <div class="section vx-first">
       <div class="vx-greet vx-greet-top">
-        <div class="vx-greet-title" id="home-greet-title">Hi, good day</div>
+        <div class="vx-greet-head">
+          <div class="vx-greet-title" id="home-greet-title">Hi, good day</div>
+          <button type="button" class="vx-copy-mini" id="copy-ref-btn" onclick="copyRef()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy Referral Link</span></button>
+        </div>
         <div class="vx-greet-msg" id="home-greet-msg">Welcome to Cash-tron, your path to prosperity. Invest today and watch your wealth grow every day.</div>
       </div>
     </div>
@@ -768,14 +779,7 @@ input[type="password"]{padding-right:46px;}
           </div>
           <span class="vx-pill vx-pill-green">&bull; LIVE</span>
         </div>
-        <div class="vx-ticker">
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {"symbols":[{"proName":"FX_IDC:EURUSD","title":"EUR/USD"},{"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"},{"proName":"BITSTAMP:ETHUSD","title":"ETH/USD"},{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FX_IDC:GBPUSD","title":"GBP/USD"},{"proName":"OANDA:XAUUSD","title":"Gold"}],"showSymbolLogo":false,"colorTheme":"light","isTransparent":true,"displayMode":"adaptive","locale":"en"}
-        </script>
-          </div>
-        </div>
+        <div class="vx-ticker" id="forex-ticker"></div>
       </div>
     </div>
 
@@ -1522,13 +1526,68 @@ function updateRegPrefix() {
 function regPhoneInput(inp) { inp.value = inp.value.replace(/\D/g, '').slice(0, 10); }
 function depPhoneInput(inp) { inp.value = inp.value.replace(/\D/g, '').slice(0, 10); }
 
-function copyRef() {
-  const url = document.getElementById('ref-url-new');
-  if (url && url.value) {
-    navigator.clipboard.writeText(url.value).then(() => {
-      // Silent copy - no toast
-    });
+var forexLastTry = 0;
+function loadForexTicker() {
+  const box = document.getElementById('forex-ticker');
+  if (!box) return;
+  box.innerHTML = '';
+  const wrap = document.createElement('div');
+  wrap.className = 'tradingview-widget-container';
+  const inner = document.createElement('div');
+  inner.className = 'tradingview-widget-container__widget';
+  wrap.appendChild(inner);
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+  s.innerHTML = JSON.stringify({
+    symbols: [
+      { proName: 'FX_IDC:EURUSD', title: 'EUR/USD' },
+      { proName: 'BITSTAMP:BTCUSD', title: 'BTC/USD' },
+      { proName: 'BITSTAMP:ETHUSD', title: 'ETH/USD' },
+      { proName: 'FOREXCOM:SPXUSD', title: 'S&P 500' },
+      { proName: 'FX_IDC:GBPUSD', title: 'GBP/USD' },
+      { proName: 'OANDA:XAUUSD', title: 'Gold' }
+    ],
+    showSymbolLogo: false, colorTheme: 'light', isTransparent: true, displayMode: 'compact', locale: 'en'
+  });
+  wrap.appendChild(s);
+  box.appendChild(wrap);
+  forexLastTry = Date.now();
+}
+function ensureForexTicker() {
+  const box = document.getElementById('forex-ticker');
+  if (!box || box.offsetWidth === 0) return; // home not visible yet
+  const frame = box.querySelector('iframe');
+  if (!frame || frame.offsetWidth === 0) {
+    if (Date.now() - (forexLastTry || 0) > 12000) loadForexTicker();
   }
+}
+setInterval(ensureForexTicker, 3000);
+
+function copyRef() {
+  if (!currentUser) return;
+  const siteBase = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+  const link = siteBase + '?ref=' + encodeURIComponent(currentUser.username);
+  const done = () => {
+    const btn = document.getElementById('copy-ref-btn');
+    if (!btn) return;
+    const span = btn.querySelector('span');
+    const old = span.textContent;
+    span.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { span.textContent = old; btn.classList.remove('copied'); }, 1500);
+  };
+  const fallback = () => {
+    const ta = document.createElement('textarea');
+    ta.value = link; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    done();
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(link).then(done).catch(fallback);
+  } else { fallback(); }
 }
 
 function toggleSupportMenu() {
@@ -1626,6 +1685,7 @@ function switchTab(tab) {
   const idx = navOrder.indexOf(tab);
   if (idx >= 0) document.querySelectorAll('.nav-item')[idx].classList.add('active');
   if (tab === 'financing') renderFinancing();
+  if (tab === 'home') setTimeout(ensureForexTicker, 300);
   closeMenu();
 }
 
